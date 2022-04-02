@@ -49,6 +49,7 @@ group :test do
   gem 'minitest'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'minitest-reporters'
 end
 group :production do
   gem 'pg', '1.1.4'
