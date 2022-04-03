@@ -5,7 +5,9 @@ ruby '3.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5'
-gem 'devise'
+gem 'devise', '~>4.8.1'
+#検索機能
+gem 'ransack', '3.0.0'
 gem 'bootstrap-sass'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'

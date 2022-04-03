@@ -1,24 +1,20 @@
 class CharactersController < ApplicationController
 
-    before_action :authenticate_user!, only:[:create,:new, :update]
 
-    def new
-        if user_signed_in?
-            @character = Character.new
-        else
-            flash[:notice] = "ログイン済ユーザーのみキャラの登録が可能です"
-            redirect_to new_user_session_path
-        end
+    before_action :authenticate_user!, :except=>[:index]
+
+
+    def index
+        @characters = Character.all
     end
 
-    def view
-        @characters = Character.all
-        #@user = User.find(params[:id])
-        #@characters = @user.characters.paginate(page: params[:page])
+
+    #Only_login_users
+    def new
+            @character = Character.new
     end
 
     def create
-        if user_signed_in?
             @character =current_user.characters.build(character_params)
             if @character.save!
                 flash[:success] = "Micropost created!"
@@ -26,20 +22,35 @@ class CharactersController < ApplicationController
             else
                 flash[:danger] = "キャラクターの登録に失敗しました"
             end
-        else
-            flash[:notice] = "ログイン済ユーザーのみキャラの登録が可能です"
-            new_user_session _path
-        end
+    end
+
+    def show
+
+    end
+
+    def edit
+        @character = Character.find_by(id: params[:id])
     end
 
     def update
+        @character = Character.find_by(id: params[:id])
+        if @character.update(character_params)
+            flash[:success] = "character updated"
+            redirect_to index_path
+        else
+            render 'edit'
+        end
     end
+
 
     private
 
     def character_params
         params.require(:character).permit(:chara_name, :appear_in)
         #params.permit(:chara_name, :appear_in)
-      end
+    end
+
+
+
 
 end

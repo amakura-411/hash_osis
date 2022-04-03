@@ -6,8 +6,11 @@
 <ul class="characters">
   <% @characters.each do |character| %>
     <li>
-      <%=character.chara_name %>
+      <h4><%=character.chara_name %>
+       <%= link_to "edit",edit_path(@character)%>
+      <p></p>
       <%=character.appear_in %>
+     
     </li>
   <% end %>
 </ul>

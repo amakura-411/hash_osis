@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/index'
   get 'pages/show'
-  get    '/view' ,  to: 'characters#view'
+  get    '/index' ,  to: 'characters#index'
+  get '/edit' , to: 'characters#edit'
+  get    '/edit/:id' ,  to: 'characters#edit'
   resources :characters,          only: [:create, :update]
   get    '/character/new', to: 'characters#new'
   post    '/character/new', to: 'characters#new'
