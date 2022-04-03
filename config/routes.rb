@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/index'
   get 'pages/show'
-  get 'view'  => 'characters#view'
+  get    '/view' ,  to: 'characters#view'
   resources :characters,          only: [:create, :update]
+  get    '/character/new', to: 'characters#new'
+  post    '/character/new', to: 'characters#new'
   devise_for :users, :controllers => {
     :confirmations => 'users/confirmations',
     :registrations => 'users/registrations',
