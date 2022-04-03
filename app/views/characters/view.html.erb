@@ -1,0 +1,10 @@
+<% provide(:title, 'All characters') %>
+<h1>All characters</h1>
+
+<ul class="characters">
+  <% @characters.each do |character| %>
+    <li>
+      <%=character %>
+    </li>
+  <% end %>
+</ul>

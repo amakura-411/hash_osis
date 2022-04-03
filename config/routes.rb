@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/index'
   get 'pages/show'
-  get 'view'  => 'character#view'
+  get 'view'  => 'characters#view'
   resources :characters,          only: [:create, :update]
   devise_for :users, :controllers => {
     :confirmations => 'users/confirmations',
