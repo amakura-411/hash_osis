@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/index'
   get 'pages/show'
+  get 'view'  => 'character#view'
   resources :characters,          only: [:create, :update]
   devise_for :users, :controllers => {
     :confirmations => 'users/confirmations',
@@ -12,3 +13,5 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+#character; get
