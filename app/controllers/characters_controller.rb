@@ -1,9 +1,14 @@
 class CharactersController < ApplicationController
 
-    before_action :authenticate_user!, only:[:create, :update]
+    before_action :authenticate_user!, only:[:create,:new, :update]
 
     def new
-        @character = Character.new
+        if user_signed_in?
+            @character = Character.new
+        else
+            flash[:notice] = "ログイン済ユーザーのみキャラの登録が可能です"
+            redirect_to new_user_session_path
+        end
     end
 
     def view
