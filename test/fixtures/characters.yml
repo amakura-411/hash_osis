@@ -1,11 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+orange:
   chara_name: MyString
-  appear_in: MyString
-  user: one
+  appear_in : test
+  created_at: <%= 10.minutes.ago %>
+  user: alice
 
 two:
-  chara_name: MyString
-  appear_in: MyString
-  user: two
+  chara_name: MyString2
+  appear_in : test2
+  created_at: <%= 3.years.ago %>
+  user: alice
+
+most_recent:
+  chara_name: MyString3
+  appear_in : test3
+  created_at: <%= Time.zone.now %>
+  user: alice

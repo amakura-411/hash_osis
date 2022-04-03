@@ -8,3 +8,8 @@ alice:
   username: "alice"
   email: "alice@example.com"
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+michel:
+  username: "michel"
+  email: "michel@example.com"
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
