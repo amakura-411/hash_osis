@@ -2,11 +2,15 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/index'
   get 'pages/show'
-  get    '/index' ,  to: 'characters#index'
-  get '/edit' , to: 'characters#edit'
-  get    '/edit/:id' ,  to: 'characters#edit'
-  resources :characters,          only: [:create, :update]
-  get    '/character/new', to: 'characters#new'
+  #get    '/index' ,  to: 'characters#index'
+  #get '/edit' , to: 'characters#edit'
+  get    '/characters/:id/edit' ,  to: 'characters#edit'
+  post    '/edit' ,  to: 'characters#edit'
+  resources :characters do
+  end
+
+
+  get    '/characters/new', to: 'characters#new'
   post    '/character/new', to: 'characters#new'
   devise_for :users, :controllers => {
     :confirmations => 'users/confirmations',

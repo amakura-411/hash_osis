@@ -1,13 +1,14 @@
 <% provide(:title, 'All characters') %>
 <h1>All characters</h1>
 推しは見つかりましたか？　見つからない場合はぜひ
-<%= link_to 'キャラ登録',character_new_path %>
+<%= link_to 'キャラ登録',new_character_path %>
 をお願いします。
 <ul class="characters">
   <% @characters.each do |character| %>
     <li>
+    blog_path(blog.id)
       <h4><%=character.chara_name %>
-       <%= link_to "edit",edit_path(@character)%>
+       <%= link_to "edit",edit_character_path(character.id)%>
       <p></p>
       <%=character.appear_in %>
      

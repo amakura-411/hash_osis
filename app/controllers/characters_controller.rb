@@ -16,9 +16,9 @@ class CharactersController < ApplicationController
 
     def create
             @character =current_user.characters.build(character_params)
-            if @character.save!
-                flash[:success] = "Micropost created!"
-                redirect_to view_path
+            if @character.save
+                #flash[:success] = "Micropost created!"
+                redirect_to characters_path
             else
                 flash[:danger] = "キャラクターの登録に失敗しました"
             end
@@ -29,16 +29,16 @@ class CharactersController < ApplicationController
     end
 
     def edit
-        @character = Character.find_by(id: params[:id])
+       @character = Character.find(params[:id])
     end
 
     def update
-        @character = Character.find_by(id: params[:id])
-        if @character.update(character_params)
-            flash[:success] = "character updated"
-            redirect_to index_path
+        @character = Character.find(params[:id])
+       # @character = Character.find_by(id: params[:id])
+        if@character.update(character_params)
+            redirect_to characters_path
         else
-            render 'edit'
+            flash[:danger] = "キャラクターの登録に失敗しました"
         end
     end
 
