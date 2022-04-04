@@ -6,6 +6,7 @@ ruby '3.0.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5'
 gem 'devise', '~>4.8.1'
+gem "jquery-rails"
 #検索機能
 gem 'ransack', '3.0.0'
 gem 'bootstrap-sass'

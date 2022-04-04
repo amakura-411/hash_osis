@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   root 'pages#index'
   get 'pages/index'
   get 'pages/show'
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   get    '/characters/:id/edit' ,  to: 'characters#edit'
   post    '/edit' ,  to: 'characters#edit'
   resources :characters do
+    resource :favorites, only: [:create, :destroy] 
   end
 
 

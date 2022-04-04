@@ -1,7 +1,7 @@
 class CharactersController < ApplicationController
 
 
-    before_action :authenticate_user!, :except=>[:index]
+before_action :authenticate_user!, :except=>[:index]
 
 
     def index
@@ -24,9 +24,7 @@ class CharactersController < ApplicationController
             end
     end
 
-    def show
 
-    end
 
     def edit
        @character = Character.find(params[:id])
