@@ -5,7 +5,7 @@ before_action :authenticate_user!, :except=>[:index]
 
 
     def index
-        @characters = Character.all
+        @characters = Character.all.page(params[:page])
     end
 
 

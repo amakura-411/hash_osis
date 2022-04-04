@@ -8,6 +8,7 @@ gem 'rails', '~> 6.1.5'
 gem 'devise', '~>4.8.1'
 gem "jquery-rails"
 gem 'paranoia'
+gem 'kaminari'
 #検索機能
 gem 'ransack', '3.0.0'
 gem 'bootstrap-sass'

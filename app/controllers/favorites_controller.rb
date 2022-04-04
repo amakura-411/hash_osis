@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
   #users see our_favorites
   def edit
     @user = User.find(params[:user_id])
-    @characters =@user.favorited_characters
+    @characters =@user.favorited_characters.page(params[:page])
   end
 
 
