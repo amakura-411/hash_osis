@@ -1,5 +1,12 @@
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:edit]
+
+  #users see our_favorites
+  def edit
+    @user = User.find(params[:user_id])
+    @characters =@user.favorited_characters
+  end
+
 
   def create
     flash[:notice] = "いいね機能はログイン中のみ使えます" unless user_signed_in?
@@ -16,4 +23,10 @@ class FavoritesController < ApplicationController
     favorite.destroy
     redirect_to characters_path
   end
+
+  private
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
+
