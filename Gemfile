@@ -5,13 +5,24 @@ ruby '3.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5'
+#機能全般
+#ログイン機能
 gem 'devise', '~>4.8.1'
-gem "jquery-rails"
-gem 'paranoia'
-gem 'kaminari'
+gem 'devise-i18n'
 #検索機能
 gem 'ransack', '3.0.0'
+#理論削除
+gem 'paranoia'
+#========================
+#デザイン
+gem "jquery-rails"
+gem 'kaminari'
 gem 'bootstrap-sass'
+
+#サンプルユーザーの呼び出し
+gem 'faker'
+
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
