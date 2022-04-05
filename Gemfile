@@ -11,6 +11,8 @@ gem 'devise', '~>4.8.1'
 gem 'devise-i18n'
 #検索機能
 gem 'ransack', '3.0.0'
+#タグ付け
+gem 'acts-as-taggable-on'
 #理論削除
 gem 'paranoia'
 #========================

@@ -6,27 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(username:  "サンプルユーザーです",
-    email: "usrtet@gmail.com",
-    password:              "fakers",
-    password_confirmation: "fakers")
+array = %w(キュート ナチュラル エレガント モード レディースマッシュ メンズマッシュ ショートボブ 内巻きボブ ショートレイヤー ロングレイヤー レイヤー レディース刈上げ メンズ刈上げ メンズカット メンズツーブロック レディースツーブロック モヒカン メンズビジネス 女の子 男の子 学生 ミセス バレイヤージュ メッシュ グラデーションカラー 芸能人 編み込み 結婚式 成人式 卒業式 和装 パーティー カジュアル メイクキュート メイクモード メイクナチュラル メイクエレガント メイク成人式 メンズウルフ レディースウルフ グラデーションボブ 外ハネボブ 前下がり スポーティー グレイヘア インナーカラー イヤリングカラー メンズパーマ レディースパーマ メンズメッシュ メンズカラー)
+array.each{ |tag|
+  tag_list = ActsAsTaggableOn::Tag.new
+  tag_list.name = tag
+  tag_list.save
+}
 
-    # 追加のユーザーをまとめて生成する
-99.times do |n|
-    name  = Faker::Name.name
-    email = "exaples-#{n+1}@gm.com"
-    password = "password"
-    User.create!(username:  name,
-                 email: email,
-                 password:              password,
-                 password_confirmation: password)
-  end
-
-  # ユーザーの一部を対象にマイクロポストを生成する
-users = User.order(:created_at).take(6)
-50.times do
-  chara_name = Faker::Name.name
-  appear_in = Faker::Lorem.sentence(word_count: 5)
-  users.each { |user| user.characters.create!(chara_name: chara_name,appear_in: appear_in) }
-end
-  
