@@ -4,8 +4,6 @@ class Character < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-
-
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   #　100文字以上は通称を書いてもらうように注意書き
@@ -13,5 +11,5 @@ class Character < ApplicationRecord
   # 380＝世界一長い作品のタイトルの文字数+5文字
   validates :appear_in, presence: true, length: { maximum: 380 }
   validates :chara_name, uniqueness: { scoup: :appear_in}
-
 end
+
