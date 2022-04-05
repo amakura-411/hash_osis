@@ -17,10 +17,11 @@ before_action :authenticate_user!, :except=>[:index]
     def create
             @character =current_user.characters.build(character_params)
             if @character.save
-                #flash[:success] = "Micropost created!"
-                redirect_to characters_path
+                flash[:notice] = "登録が完了しました!"
+                redirect_to ({controller: :characters, action: :index})
             else
-                flash[:danger] = "キャラクターの登録に失敗しました"
+                redirect_to ({controller: :characters, action: :new})
+                flash[:alert] = "既にキャラクターが登録されています"
             end
     end
 
@@ -34,9 +35,11 @@ before_action :authenticate_user!, :except=>[:index]
         @character = Character.find(params[:id])
        # @character = Character.find_by(id: params[:id])
         if@character.update(character_params)
-            redirect_to characters_path
+            flash[:notice] = "登録が完了しました!"
+            redirect_to  ({controller: :characters, action: :index})
         else
-            flash[:danger] = "キャラクターの登録に失敗しました"
+            flash[:alert] = "キャラクターの登録に失敗しました"
+            redirect_to ({controller: :characters, action: :edit})
         end
     end
 

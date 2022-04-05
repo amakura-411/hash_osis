@@ -12,4 +12,6 @@ class Character < ApplicationRecord
   validates :chara_name, presence: true, length: { maximum: 100 }
   # 380＝世界一長い作品のタイトルの文字数+5文字
   validates :appear_in, presence: true, length: { maximum: 380 }
+  validates :chara_name, uniqueness: { scoup: :appear_in}
+
 end

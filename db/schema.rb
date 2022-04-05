@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_04_175927) do
+ActiveRecord::Schema.define(version: 2022_04_05_111901) do
 
   create_table "characters", force: :cascade do |t|
     t.string "chara_name", null: false
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2022_04_04_175927) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "created_at"], name: "index_characters_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "elements", force: :cascade do |t|
+    t.string "element_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["element_name"], name: "index_elements_on_element_name", unique: true
   end
 
   create_table "favorites", force: :cascade do |t|

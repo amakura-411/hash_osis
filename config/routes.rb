@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :characters do
     resource :favorites, only: [:create, :destroy]
   end
-
-  get    '/characters/new', to: 'characters#new'
+  #get '/characters/new' ,to: 'characters#create'
+  #get    '/characters/new', to: 'characters#new'
   post    '/character/new', to: 'characters#new'
   devise_for :users, :controllers => {
     :confirmations => 'users/confirmations',
