@@ -15,7 +15,8 @@
     <header style="margin-top:30px;">
       <nav>
         <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
+          <strong><%= current_user.username %></strong>さんがログインしています！
+          <p></p>
           <%= link_to 'プロフィール変更', edit_user_registration_path %> |
           <%= link_to "ログアウト", destroy_user_session_path %> |
         <% else %>
