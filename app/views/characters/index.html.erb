@@ -4,10 +4,10 @@
 <%= link_to 'キャラ登録',new_character_path %>
 をお願いします。
 <ul class="characters">
+
   <% @characters.each do |character| %>
     <li>
-      <h4><%=character.chara_name %>
-      <%= link_to "edit",edit_character_path(character)%>
+      <h4><%= link_to character.chara_name, character_path(character) %>
       <% if user_signed_in? %>
         <% if character.favorited_by?(current_user)  %>
           <%= link_to character_favorites_path(character), method: :delete, class: "favorite_btn" do %>

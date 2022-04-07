@@ -1,11 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!, except: [:edit]
 
-  #users see our_favorites
-  def edit
-    @user = User.find(params[:user_id])
-    @characters =@user.favorited_characters.page(params[:page])
-  end
 
 
   def create
@@ -13,7 +8,7 @@ class FavoritesController < ApplicationController
     character = Character.find(params[:character_id])
     favorite = current_user.favorites.new(character_id: character.id)
     favorite.save
-    redirect_to characters_path
+    redirect_to request.referer
   end
 
   def destroy
@@ -21,7 +16,7 @@ class FavoritesController < ApplicationController
     character = Character.find(params[:character_id])
     favorite = current_user.favorites.find_by(character_id: character.id)
     favorite.destroy
-    redirect_to characters_path
+    redirect_to request.referer
   end
 
   private
