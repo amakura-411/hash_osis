@@ -5,7 +5,7 @@
 をお願いします。
 <ul class="characters">
 
-  <% @characters.each do |character| %>
+  <% @characters.find_each do |character| %>
     <li>
       <h4><%= link_to character.chara_name, character_path(character) %>
       <% if user_signed_in? %>

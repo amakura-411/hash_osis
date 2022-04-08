@@ -8,6 +8,7 @@ before_action :authenticate_user!, :except=>[:index]
     #Only_login_users
     def new
         @character = Character.new
+        @hair_colors =ActsAsTaggableOn::Tag.all
 end
 
 
@@ -50,8 +51,8 @@ end
     private
 
     def character_params
-        params.require(:character).permit(:chara_name, :appear_in)
-        #params.permit(:chara_name, :appear_in)
+        params.require(:character).permit(:chara_name, :appear_in, 
+            :hair_color_list, :eye_color_list,)
     end
 
 
