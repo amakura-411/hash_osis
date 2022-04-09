@@ -52,7 +52,7 @@ end
 
     def character_params
         params.require(:character).permit(:chara_name, :appear_in, 
-            :hair_color_list, :eye_color_list,)
+            :element_list)
     end
 
 
