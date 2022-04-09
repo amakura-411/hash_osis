@@ -27,20 +27,7 @@ end
 #
 def update
     @character = Character.find(params[:id])
-#消された要素があるとき、リストから要素を消す
-    #送信後のリストを呼び出す
-    element_list =params[:character][:element_list]
-    #消された要素を確定＝キャラに紐づけられたデータ　-　送信データ
-    remove_elements = @character.element_list - element_list if element_list
-    #リストから削除
-    @character.element_list.remove(remove_elements) if remove_elements
-#増えた要素があるとき、リストに要素を足す
-    #送信された要素
-    # element_list =params[@character.downcase][:element_list]
-    #増えた要素を確定=送信データ - キャラのデータ
-    add_elements = element_list - @character.element_list if element_list
-    #リストに追加
-    @character.element_list.add(add_elements) if add_elements
+
     if@character.update(character_params)
         flash[:notice] = "登録が完了しました!"
         redirect_to  ({controller: :characters, action: :index})
