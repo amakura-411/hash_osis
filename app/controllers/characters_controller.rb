@@ -52,16 +52,18 @@ end
 
     def index
         @characters = Character.all.page(params[:page])
+        @elements = Character.tag_counts_on(:elements).most_used(20)    # タグ一覧表示
     end
 
     def show
         @character = Character.find(params[:id])
+        @elements = @character.tag_counts_on(:elements)    # 投稿に紐付くタグの表示
     end
 
     private
 
     def character_params
-        params.require(:character).permit(:chara_name, :appear_in, :element_list)
+        params.require(:character).permit(:chara_name, :appear_in, element_list:[])
     end
 
 

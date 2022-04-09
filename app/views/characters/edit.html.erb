@@ -1,16 +1,32 @@
-<% provide(:title, 'character_new') %>
-<h1>キャラクター・アップデート</h1>
-<h3>基本情報<h3>
-<div class="row">
-  <div class ="col-md-4">
-  <%= form_for(@character) do |f| %>
-    <%= f.label :chara_name,'キャラの名前' %>
-    <%= f.text_field :chara_name, class: 'form-control' %>
-
-    <%= f.label :appear_in,'登場作品' %>
-    <%= f.text_field :appear_in, class: 'form-control'%>
-
-    <%= f.submit "アップデート", class: "btn btn-primary" %>
+<title>試し</title>
+<body>
+<div container class="containar">
+   <div class="col-md-6">テーブル</div>
+   <div class="col-md-6"><h2>基本情報欄</h2>
+   <br>
+    <%= form_for(@character) do |f| %>
+      <div class="form-floating m-3">
+      <%= f.text_field :chara_name, class: 'form-control', :placeholder => "江戸川コナン" %>
+        <%= f.label   :chara_name,'キャラクター名：' %>
+      </div>
+      <br>
+      <div class="form-floating  m-3">
+        <%= f.text_field :appear_in, class: 'form-control', :placeholder => "名探偵コナン" %>
+        <%= f.label :appear_in,'登場作品のタイトル：' %>
+      </div>
+      <br>
+        <li>グループ１</li>
+            
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"btn-check-outlined"},  "#赤目" , nil %>
+            <%= f.label :element_list,'赤目', {class: "btn btn-outline-primary",for:"btn-check-outlined"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"1"},  "#青目" , nil %>
+            <%= f.label :element_list,'青目', {class: "btn btn-outline-primary",for:"1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"btn-check-outlined2"},  "#金目" , nil %>
+            <%= f.label :element_list,'金目',  {class: "btn btn-outline-primary",for:"btn-check-outlined2"}  %>
+      <p><%= f.submit "アップデート", class: "btn btn-primary" %>
     <% end %>
+    <br>
   </div>
 </div>
+
+</body>
