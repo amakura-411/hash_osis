@@ -1,18 +1,18 @@
 <title>試し</title>
 <body>
 <div container class="containar">
-   <div class="col-md-6"></div>
+   <div class="col-md-6">テーブル</div>
    <div class="col-md-6"><h2>基本情報欄</h2>
    <br>
     <%= form_for(@character) do |f| %>
       <div class="form-floating m-3">
-        <%= f.label :chara_name,'キャラクター名：' %>
-        <%= f.text_field :chara_name, class: 'form-control', :placeholder => "江戸川コナン" %>
+      <%= f.text_field :chara_name, class: 'form-control', :placeholder => "江戸川コナン" %>
+        <%= f.label   :chara_name,'キャラクター名：' %>
       </div>
       <br>
       <div class="form-floating  m-3">
-        <%= f.label :appear_in,'登場作品のタイトル名：' %>
         <%= f.text_field :appear_in, class: 'form-control', :placeholder => "名探偵コナン" %>
+        <%= f.label :appear_in,'登場作品のタイトル：' %>
       </div>
       <br>
        <div class="form-check form-check-inline">
