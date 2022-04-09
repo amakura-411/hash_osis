@@ -10,7 +10,9 @@ class Character < ApplicationRecord
   validates :chara_name, presence: true, length: { maximum: 100 }
   # 380＝世界一長い作品のタイトルの文字数+5文字
   validates :appear_in, presence: true, length: { maximum: 380 }
-  validates :chara_name, uniqueness: { scoup: :appear_in}
+  
+  validates :appear_in,  uniqueness: { scope: :chara_name }
+  validates :chara_name, uniqueness: { scope: :appear_in }
   acts_as_taggable_on :elements #キャラの萌え属性
 end
 

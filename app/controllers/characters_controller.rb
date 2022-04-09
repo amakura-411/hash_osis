@@ -61,7 +61,7 @@ end
     private
 
     def character_params
-        params.require(:character).permit(:chara_name, :appear_in, element_list:[])
+        params.require(:character).permit(:chara_name, :appear_in, :element_list)
     end
 
 

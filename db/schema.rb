@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_04_05_140508) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["chara_name", "appear_in"], name: "index_characters_on_chara_name_and_appear_in", unique: true
     t.index ["user_id", "created_at"], name: "index_characters_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
@@ -29,7 +30,6 @@ ActiveRecord::Schema.define(version: 2022_04_05_140508) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_favorites_on_character_id"
     t.index ["user_id", "character_id"], name: "index_favorites_on_user_id_and_character_id", unique: true
-    t.index ["chara_name", "appear_in"],unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 

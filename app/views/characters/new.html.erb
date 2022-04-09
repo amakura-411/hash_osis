@@ -17,12 +17,12 @@
       <br>
        <div class="form-check form-check-inline">
         <li>グループ１</li>
-            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", autocomplete: "off"},  "赤目" , nil %>
-            <%= f.label :elemet_list,'赤目', {class: "btn btn-outline-primary btn-lg active"}  %>
-            <%= f.check_box :element_list,  { multiple: true, class: "btn-check" },  "青目" , nil %>
-            <%= f.label :elemet_list,'青目', {class: "btn btn-outline-primary  btn-lg active"}  %>
-            <%= f.check_box :element_list,  { multiple: true, class: "btn-check" },  "金目" , nil %>
-            <%= f.label :elemet_list,'金目', {class: "btn btn-outline-primary  btn-lg active"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"btn-check-outlined"},  "赤目" , nil %>
+            <%= f.label :elemet_list,'赤目', {class: "btn btn-outline-primary",for:"btn-check-outlined"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"btn-check-outlined",autocomplete: "off"},  "青目" , nil %>
+            <%= f.label :elemet_list,'青目', {class: "btn btn-outline-primary",for:"btn-check-outlined"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"btn-check-outlined",autocomplete: "off"},  "金目" , nil %>
+            <%= f.label :elemet_list,'金目',  {class: "btn btn-outline-primary",for:"btn-check-outlined"}  %>
         </div>
       <%= f.submit "アップデート", class: "btn btn-primary", id:"submits" %>
     <% end %>
