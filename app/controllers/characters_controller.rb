@@ -3,12 +3,8 @@ class CharactersController < ApplicationController
 
 before_action :authenticate_user!, :except=>[:index]
 
-
-
-    #Only_login_users
-    def new
-        @character = Character.new
-        @hair_colors =ActsAsTaggableOn::Tag.all
+def new
+    @character = Character.new
 end
 
 
@@ -28,9 +24,23 @@ def edit
    @character = Character.find(params[:id])
 end
 
+#
 def update
     @character = Character.find(params[:id])
-   # @character = Character.find_by(id: params[:id])
+#消された要素があるとき、リストから要素を消す
+    #送信後のリストを呼び出す
+    element_list =params[:character][:element_list]
+    #消された要素を確定＝キャラに紐づけられたデータ　-　送信データ
+    remove_elements = @character.element_list - element_list if element_list
+    #リストから削除
+    @character.element_list.remove(remove_elements) if remove_elements
+#増えた要素があるとき、リストに要素を足す
+    #送信された要素
+    # element_list =params[@character.downcase][:element_list]
+    #増えた要素を確定=送信データ - キャラのデータ
+    add_elements = element_list - @character.element_list if element_list
+    #リストに追加
+    @character.element_list.add(add_elements) if add_elements
     if@character.update(character_params)
         flash[:notice] = "登録が完了しました!"
         redirect_to  ({controller: :characters, action: :index})
@@ -51,8 +61,7 @@ end
     private
 
     def character_params
-        params.require(:character).permit(:chara_name, :appear_in, 
-            :element_list)
+        params.require(:character).permit(:chara_name, :appear_in, element_list:[])
     end
 
 
