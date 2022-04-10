@@ -2,8 +2,8 @@
 <h1><%=@character.chara_name %></h1>
 <br>
 <% if @elements.present? %>
-   <% @elements.each do |tag| %>
-     <%= tag.name %>
+   <% @elements.each do |element| %>
+     <%= link_to "#{element.name}(#{element.taggings_count})",characters_path(element: element.name) %>
     <%end %>
     <% else %>
     <p>登録されているタグはありません

@@ -1,11 +1,12 @@
 class Character < ApplicationRecord
   belongs_to :user
+    default_scope -> { order(created_at: :desc) }
   has_many :favorites, dependent: :destroy
   acts_as_taggable_on :elements #キャラの萌え属性
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-  default_scope -> { order(created_at: :desc) }
+
   validates :user_id, presence: true
   #　100文字以上は通称を書いてもらうように注意書き！－
   validates :chara_name, presence: true, length: { maximum: 100 }

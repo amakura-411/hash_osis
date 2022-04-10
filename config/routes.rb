@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'pages/show'
 #================キャラクターについて================================
-  get    '/characters/:id/edit', to: 'characters#edit'
-  post    '/edit', to: 'characters#edit'
-  post    '/character/new', to: 'characters#new'
+#==========タグについて==========
+
   #==============キャラをお気に入りにできる=========
   resources :characters do
     resource :favorites, only: [:create, :destroy]
   end
-
+  #get 'elements/:id',to: 'characters#elements'
 #================デバイスによるログイン機能の実装==========================================-
   devise_for :users, :controllers => {
     :confirmations => 'users/confirmations',
@@ -32,8 +31,6 @@ resources :users do
     get 'search'
   end
 end
-#users/serachだとusers＃showが呼ばれてしまうため。
-  get '/user/search', to:"users#search"
 #collection=idのつかないURL || member=idが付くURL をそれぞれ生成
 #================検索機能の実装（キャラクター）================
 resources :characters do
@@ -41,7 +38,6 @@ resources :characters do
     get 'search'
   end
 end
-get '/character/search', to:"characters#search"
 
 end
 

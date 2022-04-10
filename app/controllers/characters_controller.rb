@@ -1,8 +1,7 @@
 class CharactersController < ApplicationController
-
-
-before_action :authenticate_user!, :except=>[:index]
+before_action :authenticate_user!, :except=>[:index, :show]
 before_action :set_q, only: [:index, :search]
+
 def new
     @character = Character.new
 end
@@ -11,6 +10,7 @@ end
 
 def create
         @character =current_user.characters.build(character_params)
+
         if @character.save
             flash[:notice] = "登録が完了しました!"
             redirect_to ({controller: :characters, action: :index})
@@ -24,7 +24,6 @@ def edit
    @character = Character.find(params[:id])
 end
 
-#
 def update
     @character = Character.find(params[:id])
 
@@ -39,7 +38,10 @@ end
 
     def index
         @characters = Character.all.page(params[:page])
-        @elements = Character.tag_counts_on(:elements).most_used(20)    # タグ一覧表示
+        @elements   = Character.tag_counts_on(:elements).most_used(20) 
+        if @element = params[:element]
+            @character = Character.tagged_with(params[:element])
+        end
     end
 
     def show
@@ -55,7 +57,7 @@ end
 
 
     def character_params
-        params.require(:character).permit(:chara_name, :appear_in, element_list:[])
+        params.require(:character).permit(:chara_name, :appear_in, element_list: [])
     end
 
 
