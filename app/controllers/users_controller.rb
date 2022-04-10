@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_q, only: [:index, :search]
-  after_action  :set_q, except: [:show]
   def index
     @users = User.all.page(params[:page])
   end
