@@ -1,0 +1,21 @@
+<h1>検索結果</h1>
+<table>
+  <thead>
+    <tr>
+      <th>キャラクター名</th>
+      <th>登場作品</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |character| %>
+      <tr>
+        <td><%= character.chara_name %></td>
+        <td><%= character.appear_in%></td>
+        <td><%= link_to 'Show', character %></td>
+        <td><%= link_to 'edit', character %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

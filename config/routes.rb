@@ -32,8 +32,16 @@ resources :users do
     get 'search'
   end
 end
+#users/serachだとusers＃showが呼ばれてしまうため。
   get '/user/search', to:"users#search"
 #collection=idのつかないURL || member=idが付くURL をそれぞれ生成
+#================検索機能の実装（キャラクター）================
+resources :characters do
+  collection do
+    get 'search'
+  end
+end
+get '/character/search', to:"characters#search"
 
 end
 

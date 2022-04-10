@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
 
 
 before_action :authenticate_user!, :except=>[:index]
-
+before_action :set_q, only: [:index, :search]
 def new
     @character = Character.new
 end
@@ -47,12 +47,21 @@ end
         @elements = @character.tag_counts_on(:elements)    # 投稿に紐付くタグの表示
     end
 
+    def search
+        @results = @q.result
+    end
+
     private
+
 
     def character_params
         params.require(:character).permit(:chara_name, :appear_in, element_list:[])
     end
 
+
+    def set_q
+        @q = Character.ransack(params[:q])
+    end
 
 
 

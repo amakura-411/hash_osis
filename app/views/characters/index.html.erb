@@ -3,6 +3,15 @@
 推しは見つかりましたか？　見つからない場合はぜひ
 <%= link_to 'キャラ登録',new_character_path %>
 をお願いします。
+<br>
+<h3>検索</h3>
+<%= search_form_for @q,  url: character_search_path do |f| %>
+  <%= f.label :chara_name_or_appear_in_cont,'キャラ名/作品名',  :placeholder => 'キャラ名または作品名を記入したください'%>
+  <%= f.search_field :chara_name_or_appear_in_cont %>
+    <br>
+  <%= f.submit '検索' %>
+<% end %>
+
 <ul class="characters">
 
   <% @characters.find_each do |character| %>
