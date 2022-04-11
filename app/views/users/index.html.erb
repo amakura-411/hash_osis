@@ -2,7 +2,7 @@
 <h1>All users</h1>
 
 <h3>ユーザー検索</h3>
-<%= search_form_for @q,  url:search_users_path do |f| %>
+<%= search_form_for @q,  url:user_search_path do |f| %>
   <%= f.label :username_cont, 'ユーザー名' %>
   <%= f.search_field :username_cont %>
   <br>

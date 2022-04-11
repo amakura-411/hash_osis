@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   #=====検索機能=============
   def search
-    @results = @q.result
+    @results = @q.result.page(params[:page])
   end
 
   private

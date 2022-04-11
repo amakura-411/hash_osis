@@ -1,7 +1,7 @@
 class CharactersController < ApplicationController
-before_action :authenticate_user!, :except=>[:index, :show]
+before_action :authenticate_user!, only: [:new, :edit]
 before_action :set_q, only: [:index, :search]
-before_action :admin_user, only: :destroy
+before_action :admin_user, only: [:destroy]
 
 
 def new
@@ -50,8 +50,9 @@ end
     end
 
     def search
-        @results = @q.result
+        @results = @q.result.page(params[:page])
     end
+    
 
 
 

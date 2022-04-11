@@ -31,6 +31,7 @@ resources :users do
     get 'search'
   end
 end
+get 'user/search', to:'users#search'
 #collection=idのつかないURL || member=idが付くURL をそれぞれ生成
 #================検索機能の実装（キャラクター）================
 resources :characters do
@@ -38,6 +39,6 @@ resources :characters do
     get 'search'
   end
 end
-
+  get 'character/search', to:'characters#search'
 end
 

@@ -5,7 +5,7 @@
 をお願いします。
 <br>
 <h3>検索</h3>
-<%= search_form_for @q,  url: search_characters_path do |f| %>
+<%= search_form_for @q,  url: character_search_path do |f| %>
   <%= f.label :chara_name_or_appear_in_cont,'キャラ名/作品名',  :placeholder => 'キャラ名または作品名を記入したください'%>
   <%= f.search_field :chara_name_or_appear_in_cont %>
     <br>

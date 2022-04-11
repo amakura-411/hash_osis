@@ -2,14 +2,14 @@
 <h1> <%= @user.username %>さんのページ</h1>
 
 <h1>推し一覧</h1>
- <strong><%= @user.username %></strong>さんの推しは
+<strong><%= @user.username %></strong>さんの推しは
  現在<%= @user.favorites.count %>人です
  <p>
  <% if @user.favorites.count>0 %>
  名前       /    登場作品
  <div class="character_favorite">
  <% @characters.each do|character| %>
- ●<strong><%= character.chara_name %>   /</strong>
+ ●<strong><%=link_to character.chara_name, character_path(character) %>   /</strong>
  <%= character.appear_in %><p>
  <% end %>
 </div><!-- character_favorite -->
