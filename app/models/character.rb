@@ -1,18 +1,23 @@
 class Character < ApplicationRecord
+  #ユーザーが消えても投稿は消えないが、投稿が消えたらお気に入りから消える
   belongs_to :user
-    default_scope -> { order(created_at: :desc) }
   has_many :favorites, dependent: :destroy
-  acts_as_taggable_on :elements #キャラの萌え属性
+ acts_as_taggable_on :elements #キャラの萌え属性
+  #作成順
+    default_scope -> { order(created_at: :desc) }
+
+ #存在しないユーザーはお気に入り機能は使えない
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
 
   validates :user_id, presence: true
-  #　100文字以上は通称を書いてもらうように注意書き！－
-  validates :chara_name, presence: true, length: { maximum: 100 }
-  # 380＝世界一長い作品のタイトルの文字数+5文字
-  validates :appear_in, presence: true, length: { maximum: 380 }
-  #両方書かないとなぜかエラーが出る
+  #NGワードの設定と存在性・長さについての制約
+  validates :chara_name, presence: true, length: { maximum: 100 },
+            exclusion: {in: ["馬鹿","阿保","陰険"]}
+  validates :appear_in, presence: true, length: { maximum: 380 },
+            exclusion: {in: ["馬鹿","阿保","陰険"]}
+  #なぜか二つともに制約つけないとエラー。同作品に同姓同名の登録不可
   validates :appear_in,  uniqueness: { scope: :chara_name }
   validates :chara_name, uniqueness: { scope: :appear_in }
 

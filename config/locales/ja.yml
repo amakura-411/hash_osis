@@ -1,6 +1,12 @@
 ---
 ja:
   activerecord:
+    models:
+      character: キャラクター
+    attributes:
+      character:
+        chara_name: キャラクター名
+        appear_in:  登場作品のタイトル
     views:
     pagination:
       first: "&laquo; 最初"
@@ -24,7 +30,6 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
     - 1月
     - 2月
     - 3月
@@ -122,7 +127,7 @@ ja:
       empty: を入力してください
       equal_to: は%{count}にしてください
       even: は偶数にしてください
-      exclusion: は予約されています
+      exclusion: はNGワードに登録されています
       greater_than: は%{count}より大きい値にしてください
       greater_than_or_equal_to: は%{count}以上の値にしてください
       inclusion: は一覧にありません
@@ -212,4 +217,5 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
 

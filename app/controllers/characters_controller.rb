@@ -3,6 +3,7 @@ before_action :authenticate_user!, :except=>[:index, :show]
 before_action :set_q, only: [:index, :search]
 before_action :admin_user, only: :destroy
 
+
 def new
     @character = Character.new
 end
@@ -14,9 +15,9 @@ def create
 
         if @character.save
             flash[:notice] = "登録が完了しました!"
-            redirect_to ({controller: :characters, action: :index})
+            redirect_to 'index'
         else
-            redirect_to ({controller: :characters, action: :new})
+            render 'new'
         end
 end
 
@@ -29,9 +30,9 @@ def update
 
     if@character.update(character_params)
         flash[:notice] = "更新しました!"
-        redirect_to  ({controller: :characters, action: :index})
+        redirect_to 'index'
     else
-        redirect_to ({controller: :characters, action: :edit})
+        redirect_to 'edit'
     end
 end
 
@@ -45,7 +46,7 @@ end
 
     def show
         @character = Character.find(params[:id])
-        @elements = @character.tag_counts_on(:elements)    # 投稿に紐付くタグの表示
+        @elements = @character.tag_counts_on(:elements)
     end
 
     def search
@@ -57,7 +58,7 @@ end
     def destroy
         Character.find(params[:id].destroy)
         flash[:success] = 'キャラの削除ができました'
-        redirect_to  Characers_path
+        redirect_to  'index'
     end
 
     private

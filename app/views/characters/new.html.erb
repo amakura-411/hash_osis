@@ -1,18 +1,20 @@
 <title>試し</title>
-<body>
+<body> 
+  
 <div container class="containar">
    <div class="col-md-6">テーブル</div>
    <div class="col-md-6"><h2>基本情報欄</h2>
-   <%= render 'characters/shared/error_messages' %>
+ <%= render 'characters/shared/error_messages' %>
    <br>
-    <%= form_for(@character) do |f| %>
+    <%= form_with model: @character, local: true  do |f| %>
       <div class="form-floating m-3">
-      <%= f.text_field :chara_name, class: 'form-control', :placeholder => "江戸川コナン" %>
+
+        <%= f.text_field :chara_name, class: 'form-control',:placeholder => "キャラクター名" %>
         <%= f.label   :chara_name,'キャラクター名：' %>
       </div>
       <br>
       <div class="form-floating  m-3">
-        <%= f.text_field :appear_in, class: 'form-control', :placeholder => "名探偵コナン" %>
+        <%= f.text_field :appear_in, class: 'form-control',:placeholder => "登場作品のタイトル" %>
         <%= f.label :appear_in,'登場作品のタイトル：' %>
       </div>
       <br>
