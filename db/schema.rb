@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_05_140508) do
+ActiveRecord::Schema.define(version: 2022_04_11_120355) do
 
   create_table "characters", force: :cascade do |t|
     t.string "chara_name", null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2022_04_05_140508) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
     t.string "username", null: false
+    t.boolean "admin", default: false
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

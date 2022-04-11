@@ -3,6 +3,7 @@
 <div container class="containar">
    <div class="col-md-6">テーブル</div>
    <div class="col-md-6"><h2>基本情報欄</h2>
+   <%= render 'characters/shared/error_messages' %>
    <br>
     <%= form_for(@character) do |f| %>
       <div class="form-floating m-3">

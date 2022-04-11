@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
 before_action :authenticate_user!, :except=>[:index, :show]
 before_action :set_q, only: [:index, :search]
+before_action :admin_user, only: :destroy
 
 def new
     @character = Character.new
@@ -16,7 +17,6 @@ def create
             redirect_to ({controller: :characters, action: :index})
         else
             redirect_to ({controller: :characters, action: :new})
-            flash[:alert] = "既にキャラクターが登録されています"
         end
 end
 
@@ -28,10 +28,9 @@ def update
     @character = Character.find(params[:id])
 
     if@character.update(character_params)
-        flash[:notice] = "登録が完了しました!"
+        flash[:notice] = "更新しました!"
         redirect_to  ({controller: :characters, action: :index})
     else
-        flash[:alert] = "キャラクターの登録に失敗しました"
         redirect_to ({controller: :characters, action: :edit})
     end
 end
@@ -53,6 +52,14 @@ end
         @results = @q.result
     end
 
+
+
+    def destroy
+        Character.find(params[:id].destroy)
+        flash[:success] = 'キャラの削除ができました'
+        redirect_to  Characers_path
+    end
+
     private
 
 
@@ -63,6 +70,10 @@ end
 
     def set_q
         @q = Character.ransack(params[:q])
+    end
+
+    def admin_user
+        redirect_to(root_path) unless current_user.admin?
     end
 
 

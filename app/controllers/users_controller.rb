@@ -10,6 +10,13 @@ class UsersController < ApplicationController
   end
 
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "削除しました"
+    redirect_to root_path
+  end
+
+
   #=====検索機能=============
   def search
     @results = @q.result
@@ -19,6 +26,10 @@ class UsersController < ApplicationController
 
   def set_q
     @q = User.ransack(params[:q])
+  end
+
+  def admin_user
+    redirect_to root_path unless current_user.admin?
   end
 
 
