@@ -1,7 +1,7 @@
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
+<h1>ユーザー一覧</h1>
 
 <h3>ユーザー検索</h3>
+<!-- 折りたたむ-->
 <%= search_form_for @q,  url:user_search_path do |f| %>
   <%= f.label :username_cont, 'ユーザー名' %>
   <%= f.search_field :username_cont %>
@@ -9,13 +9,25 @@
   <%= f.submit '検索' %>
 <% end %>
 
+<% if user_signed_in? %>
+<%= link_to current_user.username, users_path(current_user)  %>
+<%= link_to "更新", users_path(current_user)  %>
+<% end %>
+
+
 
 <ul class="users">
+<table>
+  <li>
+  ユーザーネーム
+  </li>
   <% @users.find_each do |user| %>
     <li>
       <%= link_to user.username, user_path(user)  %>
+      <!--<%= link_to "#{user.username}の推し一覧", user_path(user)  %> -->
     </li>
   <% end %>
+</table>
 </ul>
 
 <%= paginate @users %>

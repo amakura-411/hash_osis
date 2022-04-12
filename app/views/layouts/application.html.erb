@@ -1,34 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>App</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <% stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- デバイスの大きさに合わせる。-->
+        <%= csp_meta_tag %>
+        <% stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag  'custom', media: 'all' %>
+        <title>#推し</title>
+    </head>
+    <body>
+        <!-- ヘッダー-->
+            <%= render "layouts/header"%>
+            <%= render "layouts/nav/mockup-navbar-base"%>
+            <!--ナビゲーション  -->
+            <main>
+            <%= yield %>
+            <footer class="py-4">
+            <!-- フッター -->
+            </footer>
+       
+    </body>
 
-  <body>
-    <header style="margin-top:30px;">
-      <nav>
-        <% if user_signed_in? %>
-          <strong><%= current_user.username %></strong>さんがログインしています！
-          <p></p>
-          <%= link_to 'プロフィール変更', edit_user_registration_path %> |
-          <%= link_to "ログアウト", destroy_user_session_path %> |
-        <% else %>
-          <%= link_to "サインアップ", new_user_registration_path %> |
-          <%= link_to "ログイン", new_user_session_path %> |
-        <% end %>
-         <%= link_to "ユーザー一覧", users_path %>|
-        <%= link_to "キャラクター一覧", characters_path %>|
-      </nav>
-    </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
-  </body>
 </html>

@@ -15,9 +15,9 @@ def create
 
         if @character.save
             flash[:notice] = "登録が完了しました!"
-            redirect_to 'index'
+            redirect_to action: "index"
         else
-            render 'new'
+            redirect_to action: "new"
         end
 end
 
@@ -27,12 +27,11 @@ end
 
 def update
     @character = Character.find(params[:id])
-
     if@character.update(character_params)
         flash[:notice] = "更新しました!"
-        redirect_to 'index'
+        redirect_to action: "index"
     else
-        redirect_to 'edit'
+        redirect_to action: "edit"
     end
 end
 

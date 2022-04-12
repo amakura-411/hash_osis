@@ -3,6 +3,7 @@
 <br>
 <% if @elements.present? %>
    <% @elements.each do |element| %>
+   
      <%= link_to "#{element.name}(#{element.taggings_count})",characters_path(element: element.name) %>
     <%end %>
     <% else %>
