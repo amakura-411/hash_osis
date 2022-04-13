@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'pages#index'
+  root 'pages#home'
   get 'pages/index'
-  get 'pages/show'
+  get 'pages/home'
 #================キャラクターについて================================
 #==========タグについて==========
 

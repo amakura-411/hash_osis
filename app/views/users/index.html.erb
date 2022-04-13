@@ -9,13 +9,6 @@
   <%= f.submit '検索' %>
 <% end %>
 
-<% if user_signed_in? %>
-<%= link_to current_user.username, users_path(current_user)  %>
-<%= link_to "更新", users_path(current_user)  %>
-<% end %>
-
-
-
 <ul class="users">
 <table>
   <li>
