@@ -1,0 +1,27 @@
+<footer class="py-4 text-ligth"style="background-color: lemonchiffon">
+    <div class="container text-center">
+        <ul class="nav justify-content-center mb-3">
+            <li class="nav-item">
+                <a class="nav-link" href="/">ホーム</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/index">利用方法</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users">ユーザー一覧</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/characters">キャラクター一覧</a>
+            </li>
+            <% if user_signed_in? %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/sign_out">ログアウト</a>
+                </li>
+            <% else%>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/sign_in">ログイン</a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</footer>

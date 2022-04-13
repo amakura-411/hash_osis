@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-md navbar-light sticky-top p-4 " style="background-color: lemonchiffon">
+        <div class="container">
+                <a class ="navbar-brand" href="">＃推し</a>
+        <button class ="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false"
+                aria-label="Toggele navigation">
+                <span class="navbar-toggler-icon"></span><!-- 三（ハンバーガーアイコン）の表示　-->
+        </button>
+        <!--ナビゲーションのリンクの場所 -->
+        <div class="collapse navbar-collapse" id="navbar-content">
+        <ul class="navbar-nav me-auto">
+        <!-- 自動で文字の間に空白を作る -->
+        <li class="nav-item active">
+                <a class="nav-link" href="/">ホーム<span class="visually-hidden">(current)</span></a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="/pages/index">利用方法</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="/users">ユーザー一覧</a>
+        </li>
+        <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#"
+                id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <!--▼を押すとポップアウト（分岐）。普段は閉じた状態 -->
+                キャラクター
+                </a>
+                <div class="dropdown-menu" aria-labelledy="navbarDropdown" >
+                        <a class="dropdown-item" href="/characters">キャラクター一覧</a>
+                        <a class="dropdown-item" href="/characters/new">キャラクター作成</a>
+                </div>
+        </li>
+        <% if user_signed_in? %>
+         <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#"id="navbarDropdown"
+                role="button" data-bs-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+                プロフィール更新・ログアウト</a>
+                <div class="dropdown-menu" aria-labelledy="navbarDropdown" >
+                        <a class="dropdown-item" href="/users/edit">プロフィール更新</a>
+                <a class="dropdown-item" href="/users/sign_out">ログアウト</a>
+                </div>
+        </li>
+        <% else %>
+        <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ユーザー登録・ログイン
+                </a>
+                <div class="dropdown-menu" aria-labelledy="navbarDropdown" >
+                <a class="dropdown-item" href="/users/new">ユーザー登録</a>
+                <a class="dropdown-item" href="/users/sign_in">サインイン</a>
+                </div>
+        </li>
+        <% end %>
+    </ul>
+</div>
+</div>
+</nav>
+<!-- 大きさ パソコン以上は全部出るが、タブレット・スマホだとハンバーガーアイコンになるはず。-->
+<!--ナビゲーションのカラーは桃色。デザインは全体的に暖色にするべし -->
+
+
+

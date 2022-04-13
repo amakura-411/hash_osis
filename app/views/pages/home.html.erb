@@ -4,6 +4,7 @@
         <div id="homeSlides" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
             <!-- 3枚の写真はpixabayより引用-->
+            <!--スワイプで画像切り替えできる-->
                 <div class="carousel-item active">
                     <img  class='img-fluid' src='/assets/slide-0.jpg' alt='people'>
                 </div>
@@ -19,23 +20,6 @@
 </div>
 
 
-<div class="py-4">
-    <section class="news">
-        <div class='container'>
-            <div class='row'>
-                <div class='col-md-2'>
-                    <h3>ニュース</h3>
-                </div>
-                <div class='com-md-10'>
-                    <dl class='row'>
-                        <dt class='col-md-3'>更新日時</dt>
-                        <dd class='col-md-9'>更新内容</dd>
-                        <dt class='col-md-3'>2022年４月１３日</dt>
-                        <dd class='col-md-9'>ニュースの設置</dd>
-                    </dl>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+
+<%= render 'pages/update_news'%>
 
