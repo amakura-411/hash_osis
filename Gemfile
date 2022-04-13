@@ -20,7 +20,7 @@ gem 'paranoia'
 gem "jquery-rails"
 gem 'kaminari'
 gem 'bootstrap-sass'
-#gem 'bootstrap'
+gem 'bootstrap'
 
 #サンプルユーザーの呼び出し
 gem 'faker'
