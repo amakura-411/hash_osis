@@ -1,24 +1,54 @@
-<div class='py-4'>
-    <div class = "container">
-        <div id="homeSlides" class="carousel slide" data-bs-ride="carousel">
-            <div class ='carousel-innner'>
-            <!-- 3枚の写真はpixabayより引用-->
-                <div class ='carousel-item active'>
-                    <img  class='img-fluid' src='assets/slide-0.jpg' alt='people'>
-                    <div class='carousel-caption d-none d-md-block' ></div>
-                </div>
-                <div class ='carousel-item'>
-                    <img class='img-fluid' src='assets/slide-1.jpg' alt='wonam'>
-                    <div class='carousel-caption d-none d-md-block' ></div>
-                </div>
-                <div class ='carousel-item'>
-                <img class='img-fluid' src='assets/slide2.jpg' alt='man'>
-                    <div class='carousel-caption d-none d-md-block' ></div>
-                </div>
-            </div>
+<div class="container">
+    <h2>ログイン</h2>
+<div>
+<div class='py-3'>
+  <div claa='container'>
+    <h3 class="mb-3">ログインフォーム</h3>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="row py-3">
+        <label for="email" class="col-md com-form-label" >
+        メールアドレス  <span class="badge bg-info text-light">必須</span>
+        </label>
+        <div class="col-md-9">
+        
+          <div class="form-floating">
+            <%= f.email_field  :email , class: 'form-control', placeholder:"メールアドレス",
+            autofocus: true, autocomplete: "email"%>
+            <%= f.label :email,'登録したメールアドレスをご入力ください。'%>
+          </div>
         </div>
-    </div>
+      </div>
+      <div class="row py-3">
+        <label for="password" class="col-md com-form-label">
+        パスワード  <span class="badge bg-info text-light">必須</span>
+        </label>
+        <div class="col-md-9">
+          <div class="form-floating">
+            <%= f.password_field  :password , class: 'form-control', placeholder:"パスワード",
+            autocomplete: "current-password"%>
+            <%= f.label :password,'登録したパスワードをご入力ください。'%>
+          </div>
+      </div>
+
+
+      <div class="row justify-content-end py-3">
+        <% if devise_mapping.rememberable? %>
+        <div class="col-md-9">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+        <p>
+        <% end %>
+        <div class="col-md-9">
+          <%= f.submit'ログイン', class:"btn btn-primary" %>
+        <div>
+    <% end %>
+  </div>
 </div>
+
+
+
+<%= render "users/shared/links" %>
 
 
 
