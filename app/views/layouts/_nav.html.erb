@@ -35,21 +35,24 @@
          <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#"id="navbarDropdown"
                 role="button" data-bs-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
-                プロフィール更新・ログアウト</a>
+                ユーザー管理</a>
                 <div class="dropdown-menu" aria-labelledy="navbarDropdown" >
+                        <!--<a class="dropdown-item" href="/users/:id">'現在のユーザーさんのページ'</a>　と同義 -->
+                        <!-- idや名前の取得など以外では、htmlの書き方のほうがわかりやすいため、基本は a href　で書きます-->
+                        <%= link_to "#{current_user.username}さんのページ", user_path(current_user),class:'dropdown-item' %>
                         <a class="dropdown-item" href="/users/edit">プロフィール更新</a>
-                <a class="dropdown-item" href="/users/sign_out">ログアウト</a>
+                        <a class="dropdown-item" href="/users/sign_out">ログアウト</a>
                 </div>
         </li>
         <% else %>
         <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ユーザー登録・ログイン
+                ユーザー管理
                 </a>
                 <div class="dropdown-menu" aria-labelledy="navbarDropdown" >
-                <a class="dropdown-item" href="/users/sign_up">ユーザー登録</a>
-                <a class="dropdown-item" href="/users/sign_in">サインイン</a>
+                        <a class="dropdown-item" href="/users/sign_up">ユーザー登録</a>
+                        <a class="dropdown-item" href="/users/sign_in">サインイン</a>
                 </div>
         </li>
         <% end %>
