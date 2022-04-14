@@ -2,6 +2,8 @@ class Character < ApplicationRecord
   #ユーザーが消えても投稿は消えないが、投稿が消えたらお気に入りから消える
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  #写真がアップできるようになる
+  has_one_attached :image
  acts_as_taggable_on :elements #キャラの萌え属性
   #作成順
     default_scope -> { order(created_at: :desc) }

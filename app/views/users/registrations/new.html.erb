@@ -1,65 +1,67 @@
-<h2>ユーザー登録</h2>
+<div class="container">
+    <h2>ユーザー登録</h2>
+<div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
+<div class='py-3'>
+  <div class='container'>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
       <div class="row py-3">
-        <label for="username" class="col-md com-form-label" >
-        ユーザー名  <span class="badge bg-info text-light">必須</span>
+        <label for="username" class="col-md com-form-label">ユーザー名
+          <span class="badge bg-info text-light">必須</span>
         </label>
         <div class="col-md-9">
           <div class="form-floating">
             <%= f.text_field  :username , class: 'form-control', placeholder:"ユーザー", required: true%>
-            <%= f.label :username,'お好きなユーザー名をご入力ください。'%>
           </div>
         </div>
       </div>
 
       <div class="row py-3">
-        <label for="email" class="col-md com-form-label" >
-        メールアドレス  <span class="badge bg-info text-light">必須</span>
+        <label for="email" class="col-md com-form-label" >メールアドレス
+          <span class="badge bg-info text-light">必須</span>
         </label>
         <div class="col-md-9">
           <div class="form-floating">
             <%= f.email_field  :email , class: 'form-control', placeholder:"メールアドレス",
             autofocus: true, autocomplete: "email", required: true %>
-            <%= f.label :email,'有効なメールアドレスをご入力ください。'%>
           </div>
         </div>
       </div>
 
       <div class="row py-3">
-        <label for="password" class="col-md com-form-label">
-        登録するパスワード　<span class="badge bg-info text-light">必須</span>
+        <label for="password" class="col-md com-form-label">登録するパスワード
+          <span class="badge bg-info text-light">必須</span>
         </label>
         <div class="col-md-9">
           <div class="form-floating">
-          <%= f.password_field   :password, class: 'form-control',
-          placeholder:"パスワード",autocomplete:  "new-password", required: true %>
-          <%= f.label :password,'登録するパスワードをご入力ください。'%>
+            <%= f.password_field   :password, class: 'form-control',
+            placeholder:"パスワード",autocomplete:  "new-password", required: true %>
+            <%= f.label :password,'登録するパスワードをご入力ください。'%>
           </div>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 文字以上)</em>
+            <em>(<%= @minimum_password_length %> 文字以上)</em>
           <% end %><br />
         </div>
       </div>
 
       <div class="row py-3">
-        <label for="password" class="col-md com-form-label">
-        登録するパスワード（確認用）　<span class="badge bg-info text-light">必須</span>
+        <label for="password" class="col-md com-form-label">登録するパスワード（確認用）
+          <span class="badge bg-info text-light">必須</span>
         </label>
         <div class="col-md-9">
           <div class="form-floating">
             <%= f.password_field  :password_confirmation , class: 'form-control', 
             placeholder:"パスワード",autocomplete: "new-password", required: true %>
-            <%= f.label :password_confirmation,'登録するパスワードをご入力ください。'%>
+            <%= f.label :password_confirmation,'再度、登録するパスワードをご入力ください。'%>
           </div>
         </div>
       </div>
 
-  <div class="actions">
-    <%= f.submit "登録" %>
+      <div class="actions">
+        <%= f.submit "登録" %>
+      </div>
+    <% end %>
+    <%= render "users/shared/links" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

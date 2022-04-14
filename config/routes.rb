@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :characters do
     resource :favorites, only: [:create, :destroy]
   end
-  #get 'elements/:id',to: 'characters#elements'
+
 #================デバイスによるログイン機能の実装==========================================-
   devise_for :users, :controllers => {
     :confirmations => 'users/confirmations',

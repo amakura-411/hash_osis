@@ -17,7 +17,7 @@
   <% @users.find_each do |user| %>
     <li>
       <%= link_to user.username, user_path(user)  %>
-      <!--<%= link_to "#{user.username}の推し一覧", user_path(user)  %> -->
+      <%= link_to "#{user.username}の推し一覧", user_favorites_path(user)  %>
     </li>
   <% end %>
 </table>

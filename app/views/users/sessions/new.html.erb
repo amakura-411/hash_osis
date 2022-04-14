@@ -2,7 +2,7 @@
     <h2>ログイン</h2>
 <div>
 <div class='py-3'>
-  <div claa='container'>
+  <div class='container'>
   
     <h3 class="mb-3">ログインフォーム</h3>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -15,7 +15,6 @@
           <div class="form-floating">
             <%= f.email_field  :email , class: 'form-control', placeholder:"メールアドレス",
             autofocus: true, autocomplete: "email", required: true %>
-            <%= f.label :email,'登録したメールアドレスをご入力ください。'%>
           </div>
         </div>
       </div>
@@ -27,7 +26,6 @@
           <div class="form-floating">
             <%= f.password_field  :password , class: 'form-control', placeholder:"パスワード",
             autocomplete: "current-password", required: true %>
-            <%= f.label :password,'登録したパスワードをご入力ください。'%>
           </div>
       </div>
 

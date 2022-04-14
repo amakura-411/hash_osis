@@ -12,7 +12,7 @@ end
 
 def create
         @character =current_user.characters.build(character_params)
-
+        @character.image.attach(params[:character][:image])
         if @character.save
             flash[:notice] = "登録が完了しました!"
             redirect_to action: "index"
@@ -65,7 +65,7 @@ end
 
 
     def character_params
-        params.require(:character).permit(:chara_name, :appear_in, element_list: [])
+        params.require(:character).permit(:chara_name, :appear_in, :image, element_list: [])
     end
 
 

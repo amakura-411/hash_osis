@@ -1,0 +1,22 @@
+
+
+
+<h2><%= @user.username %>さんの推し一覧</h2>
+
+ <% if @user.favorites.count == 0 %>
+ キャラクター一覧から推しを見つけてください！
+ <% else %>
+ <!-- box -->
+ 名前       /    登場作品
+ <div class="character_favorite">
+ <% @characters.each do|character| %>
+ ●<strong><%=link_to character.chara_name, character_path(character) %>   /</strong>
+ <%= character.appear_in %><p>
+ <% end %>
+</div><!-- character_favorite -->
+
+
+<% end %>
+
+
+<%= paginate @characters %>

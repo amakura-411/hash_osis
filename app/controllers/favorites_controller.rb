@@ -1,6 +1,11 @@
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!, except: [:edit]
+  before_action :authenticate_user!, except: [:show]
 
+def show
+    @user =User.find(params[:user_id])
+    @characters =@user.favorited_characters.page(params[:page])
+
+end
 
 
   def create
@@ -17,9 +22,5 @@ class FavoritesController < ApplicationController
     redirect_to request.referer
   end
 
-  private
-  def set_user
-    @user = User.find(params[:id])
-  end
 end
 

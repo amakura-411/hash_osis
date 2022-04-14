@@ -1,77 +1,80 @@
-<h2>プロフィール変更 <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+   <h2>プロフィール変更 </h2>
+<div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-      <div class="row py-3">
-        <label for="username" class="col-md com-form-label" >ユーザー名　<span class="badge bg-info text-light">必須</span>
-        </label>
-        <div class="col-md-9">
-          <div class="form-floating">
-            <%= f.text_field  :username , class: 'form-control', placeholder:"ユーザー", required: true %>
-            <%= f.label :username,'お好きなユーザー名をご入力ください。'%>
+<div class='py-3'>
+  <div class='container'>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+        <div class="row py-3">
+          <label for="username" class="col-md com-form-label" >ユーザー名
+          <span class="badge bg-info text-light">必須</span></label>
+          <div class="col-md-9">
+            <div class="form-floating">
+              <%= f.text_field  :username , class: 'form-control', placeholder:"ユーザー", required: true %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row py-3">
+          <label for="email" class="col-md com-form-label" >メールアドレス
+            <span class="badge bg-info text-light">必須</span>
+          </label>
+          <div class="col-md-9">
+            <div class="form-floating">
+              <%= f.email_field  :email , class: 'form-control', placeholder:"メールアドレス", required: true%>
+            </div>
+          </div>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+        <div class="row py-3">
+          <label for="password" class="col-md com-form-label">現在のパスワード
+            <span class="badge bg-info text-light">必須</span>
+          </label>
+          <div class="col-md-9">
+            <div class="form-floating">
+              <%= f.password_field  :current_password , class: 'form-control',
+              placeholder:"パスワード",autocomplete: "current-password", required: true%>
+              <%= f.label :current_password,'現在のパスワードをご入力ください。'%>
+            </div>
+          </div>
+        </div>
+        <div class="row py-3">
+          <label for="password" class="col-md com-form-label">登録するパスワード（6文字以上）</label>
+          <div class="col-md-9">
+          <p><p>パスワードを変える場合は、下記のフォームにご記入ください。
+            <div class="form-floating">
+              <%= f.password_field  :password_confirmation , class: 'form-control', placeholder:"パスワード"%>
+              <%= f.label :password_confirmation,'登録するパスワードをご入力ください。'%>
+            </div>
+          </div>
+        </div>
+
+        <div class="row py-3">
+          <label for="password" class="col-md com-form-label">登録するパスワード（確認用）</label>
+          <div class="col-md-9">
+            <div class="form-floating">
+              <%= f.password_field  :password_confirmation , class: 'form-control', placeholder:"パスワード"%>
+              <%= f.label :password_confirmation,'登録するパスワードをご入力ください。'%>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-end py-3">
+          <div class="col-md-9">
+            <%= f.submit "更新",class:"btn btn-primary"%>
           </div>
         </div>
       </div>
+    <% end %><p>
+    <h3>アカウントの削除</h3>
 
-      <div class="row py-3">
-        <label for="email" class="col-md com-form-label" >メールアドレス　<span class="badge bg-info text-light">必須</span>
-        </label>
-        <div class="col-md-9">
-          <div class="form-floating">
-            <%= f.email_field  :email , class: 'form-control', placeholder:"メールアドレス", required: true%>
-            <%= f.label :email,'登録したメールアドレスをご入力ください。'%>
-          </div>
-        </div>
-      </div>
+    <p>削除しますか？
+    <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "よろしいですか？" }, method: :delete %></p>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-      <div class="row py-3">
-        <label for="password" class="col-md com-form-label">現在のパスワード　<span class="badge bg-info text-light">必須</span>
-        </label>
-        <div class="col-md-9">
-          <div class="form-floating">
-            <%= f.password_field  :current_password , class: 'form-control',
-            placeholder:"パスワード",autocomplete: "current-password", required: true%>
-            <%= f.label :current_password,'現在のパスワードをご入力ください。'%>
-          </div>
-        </div>
-      </div>
-
-      <div class="row py-3">
-        <label for="password" class="col-md com-form-label">登録するパスワード（6文字以上）</label>
-        <div class="col-md-9">
-        <p>
-        <p>パスワードを変える場合は、下記のフォームにご記入ください。
-          <div class="form-floating">
-            <%= f.password_field  :password_confirmation , class: 'form-control', placeholder:"パスワード"%>
-            <%= f.label :password_confirmation,'登録するパスワードをご入力ください。'%>
-          </div>
-        </div>
-      </div>
-
-      <div class="row py-3">
-        <label for="password" class="col-md com-form-label">登録するパスワード（確認用）</label>
-        <div class="col-md-9">
-          <div class="form-floating">
-            <%= f.password_field  :password_confirmation , class: 'form-control', placeholder:"パスワード"%>
-            <%= f.label :password_confirmation,'登録するパスワードをご入力ください。'%>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="row justify-content-end py-3">
-        <div class="col-md-9">
-          <%= f.submit "Update",class:"btn btn-primary"%>
-        </div>
-      </div>
+    <%= link_to "戻る", :back %>
   </div>
-<% end %>
-<p>
-<h3>アカウントの削除</h3>
-
-<p>削除しますか？ <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "よろしいですか？" }, method: :delete %></p>
-
-<%= link_to "戻る", :back %>
+<div>

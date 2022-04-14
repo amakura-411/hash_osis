@@ -1,5 +1,6 @@
 <% provide(:title, 'character_show') %>
 <h1><%=@character.chara_name %></h1>
+      <%= image_tag @character.image if @character.image.attached? %>
 <br>
 <% if @elements.present? %>
    <% @elements.each do |element| %>

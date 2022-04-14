@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def show
     @user =User.find(params[:id])
-    @characters =@user.favorited_characters.page(params[:page])
   end
 
 
@@ -15,6 +14,8 @@ class UsersController < ApplicationController
     flash[:success] = "削除しました"
     redirect_to root_path
   end
+
+
 
 
   #=====検索機能=============
