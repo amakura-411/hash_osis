@@ -1,28 +1,44 @@
-<title>試し</title>
-<body> 
-  
-<div container class="containar">
-   <div class="col-md-6">テーブル</div>
-   <div class="col-md-6"><h2>基本情報欄</h2>
- <%= render 'characters/shared/error_messages' %>
-   <br>
-    <%= form_with model: @character, local: true  do |f| %>
-      <div class="form-floating m-3">
+<div class="container">
+    <h2>キャラクター登録</h2>
+<div>
 
-        <%= f.text_field :chara_name, class: 'form-control',:placeholder => "キャラクター名" %>
-        <%= f.label   :chara_name,'キャラクター名：' %>
+<div class='py-3'>
+  <div  class="containar">
+    <%= form_with model: @character, local: true  do |f| %>
+      <div class="row py-3">
+        <label for="chara_name" class='col-md com-form-label'>キャラクター名
+          <span class='badge bg-info text-light'>必須</span>
+        </label>
+        <div class ='col-md-9'>
+          <div class='form-floting'>
+            <%= f.text_field :chara_name,class:'form-control', required: true %>
+          </div>
+        </div>
       </div>
-      <br>
-      <div class="form-floating  m-3">
-        <%= f.text_field :appear_in, class: 'form-control',:placeholder => "登場作品のタイトル" %>
-        <%= f.label :appear_in,'登場作品のタイトル：' %>
+
+      <div class="row py-3">
+        <label for="appear_in" class='col-md com-form-label'>作品名
+        <span class='badge bg-info text-light'>必須</span></label>
+        <div class ='col-md-9'>
+          <div class='form-floting'>
+            <%= f.text_field :appear_in, class:'form-control',required: true %>
+          </div>
+        </div>
       </div>
-        <span class="image">
-          <%= f.file_field :image %>
-        </span>
-      <br>
-        <li>グループ１</li>
-            
+      <!-- 削除ボタン設置-->
+      <!-- 画像は見えるように　=> preview.js 実装　 -->
+      <div class="row py-3">
+        <label for="image" class='col-md com-form-label'>画像</label>
+        <div class ='col-md-9'>
+       <span class="image">
+       
+
+    <%= f.file_field :image %>
+  </span>
+      <div id="new-image"></div>  #追記
+      <div>
+      <!-- 折り畳み式-->
+      <li>グループ１</li>
             <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"btn-check-outlined"},  "赤目" , nil %>
             <%= f.label '赤目', {class: "btn btn-outline-primary",for:"btn-check-outlined"}  %>
             <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"1"},  "青目" , nil %>
@@ -31,8 +47,10 @@
             <%= f.label '金目',  {class: "btn btn-outline-primary",for:"btn-check-outlined2"}  %>
       <p><%= f.submit "アップデート", class: "btn btn-primary" %>
     <% end %>
-    <br>
   </div>
 </div>
 
-</body>
+
+
+
+

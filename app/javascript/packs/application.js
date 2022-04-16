@@ -14,5 +14,5 @@ import "../stylesheets/application.scss";
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
+require('./preview')
 require('test.js')

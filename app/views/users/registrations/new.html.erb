@@ -12,7 +12,7 @@
         </label>
         <div class="col-md-9">
           <div class="form-floating">
-            <%= f.text_field  :username , class: 'form-control', placeholder:"ユーザー", required: true%>
+            <%= f.text_field  :username , class: 'form-control', placeholder:"山田　武夫", required: true%>
           </div>
         </div>
       </div>
@@ -23,20 +23,20 @@
         </label>
         <div class="col-md-9">
           <div class="form-floating">
-            <%= f.email_field  :email , class: 'form-control', placeholder:"メールアドレス",
+            <%= f.email_field  :email , class: 'form-control', placeholder:"xxx@xxx.com",
             autofocus: true, autocomplete: "email", required: true %>
           </div>
         </div>
       </div>
 
       <div class="row py-3">
-        <label for="password" class="col-md com-form-label">登録するパスワード
+        <label for="password" class="col-md com-form-label">6文字以上のパスワード
           <span class="badge bg-info text-light">必須</span>
         </label>
         <div class="col-md-9">
           <div class="form-floating">
             <%= f.password_field   :password, class: 'form-control',
-            placeholder:"パスワード",autocomplete:  "new-password", required: true %>
+            autocomplete:  "new-password", required: true %>
             <%= f.label :password,'登録するパスワードをご入力ください。'%>
           </div>
           <% if @minimum_password_length %>
@@ -46,14 +46,14 @@
       </div>
 
       <div class="row py-3">
-        <label for="password" class="col-md com-form-label">登録するパスワード（確認用）
+        <label for="password" class="col-md com-form-label">6文字以上のパスワード（確認用）
           <span class="badge bg-info text-light">必須</span>
         </label>
         <div class="col-md-9">
           <div class="form-floating">
             <%= f.password_field  :password_confirmation , class: 'form-control', 
-            placeholder:"パスワード",autocomplete: "new-password", required: true %>
-            <%= f.label :password_confirmation,'再度、登録するパスワードをご入力ください。'%>
+            autocomplete: "new-password", required: true %>
+            <%= f.label :password_confirmation,'******。'%>
           </div>
         </div>
       </div>
