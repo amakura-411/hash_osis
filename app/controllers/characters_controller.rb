@@ -27,6 +27,10 @@ end
 
 def update
     @character = Character.find(params[:id])
+    if params[:character][:image_id]
+        @image = @character.image.find(image_id)
+        
+    end
     if@character.update(character_params)
         flash[:notice] = "更新しました!"
         redirect_to action: "index"

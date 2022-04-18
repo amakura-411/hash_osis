@@ -1,50 +1,46 @@
-<div class="container">
-    <h2>キャラクター登録</h2>
-<div>
+<div class='container'>
+  <h2>キャラクター作成</h2>
+</div>
 
 <div class='py-3'>
-  <div  class="containar">
-    <%= form_with model: @character, local: true  do |f| %>
+  <div class='container'>
+    <%= form_with model: @character, local: true do |f| %>
+      <%= render "characters/shared/error_messages" %>
       <div class="row py-3">
-        <label for="chara_name" class='col-md com-form-label'>キャラクター名
-          <span class='badge bg-info text-light'>必須</span>
+        <label for="chara_name" class="col-md com-form-label" >キャラクター名（１００字以内）
+        <span class="badge bg-info text-light">必須</span></label>
+        <div class="col-md-9">
+          <div class="form-floating">
+            <%= f.text_field  :chara_name , class: 'form-control', required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row py-3">
+        <label for="appear_in" class="col-md com-form-label" >登場作品のタイトル
+          <span class="badge bg-info text-light">必須</span>
         </label>
-        <div class ='col-md-9'>
-          <div class='form-floting'>
-            <%= f.text_field :chara_name,class:'form-control', required: true %>
+        <div class="col-md-9">
+          <div class="form-floating">
+            <%= f.text_field  :appear_in , class: 'form-control',  required: true%>
           </div>
         </div>
       </div>
 
+
       <div class="row py-3">
-        <label for="appear_in" class='col-md com-form-label'>作品名
-        <span class='badge bg-info text-light'>必須</span></label>
-        <div class ='col-md-9'>
-          <div class='form-floting'>
-            <%= f.text_field :appear_in, class:'form-control',required: true %>
-          </div>
+        <label for="image" class="col-md com-form-label" >キャラクターの画像ファイル</label>
+        <div class="col-md-9">
+          <div class="image">
+            <%= f.file_field  :image %>
+            <br>
+              下にプレビューが表示されます。<div id="new-image"></div>
+          <div>
         </div>
       </div>
-      <!-- 削除ボタン設置-->
-      <!-- 画像は見えるように　=> preview.js 実装　 -->
-      <div class="row py-3">
-        <label for="image" class='col-md com-form-label'>画像</label>
-        <div class ='col-md-9'>
-       <span class="image">
-       
 
-    <%= f.file_field :image %>
-  </span>
-      <div id="new-image"></div>  #追記
-      <div>
+      <%= render "characters/shared/appearances" %>
       <!-- 折り畳み式-->
-      <li>グループ１</li>
-            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"btn-check-outlined"},  "赤目" , nil %>
-            <%= f.label '赤目', {class: "btn btn-outline-primary",for:"btn-check-outlined"}  %>
-            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"1"},  "青目" , nil %>
-            <%= f.label '青目', {class: "btn btn-outline-primary",for:"1"}  %>
-            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"btn-check-outlined2"},  "金目" , nil %>
-            <%= f.label '金目',  {class: "btn btn-outline-primary",for:"btn-check-outlined2"}  %>
       <p><%= f.submit "アップデート", class: "btn btn-primary" %>
     <% end %>
   </div>
