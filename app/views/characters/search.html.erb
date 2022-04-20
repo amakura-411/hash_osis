@@ -2,32 +2,51 @@
 <h2>検索結果</h2>
 <div>
 <% if@results.present? %>
-<table>
-  <head>
-    <tr>
-      <th>キャラクター名</th>
-      <th>登場作品</th>
-      <th colspan="4"></th>
-    </tr>
-  </head>
-
-  <body>
     <% @results.each do |character| %>
-      <tr>
-        <td><%= character.chara_name %></td>
-        <td><%= character.appear_in%></td>
-        <td><%= link_to 'Show', character %></td>
-        <td><%= link_to 'edit', character %></td>
-      </tr>
+      <div class='card'>
+        <div class='col-md-4'>
+          <%= image_tag character.image , class:"icon" if character.image.attached? %>
+        </div>
+        <div class='card-body'>
+          <h4 class='card-title'>
+            <%= character.chara_name %>
+          </h4>
+          <h5 class='card-subtitle'>
+            <%= character.appear_in %>
+          </h5>
+          <p class='card-text'>
+          <p>
+            <% if character.tag_counts_on(:elements).present? %>
+              <% character.tag_counts_on(:elements).each do |element| %>
+                <%= link_to "#{element.name}(#{element.taggings_count})",characters_path(element: element.name) %>
+              <% end %>
+            <% end %>
+          </p>
+        </div>
+        <div class='card-footer'>
+          <ul class='nav nav-tabs card-footer-pills' >
+            <li class='nav-item'>
+            <a class='nav-link active' href='#'>内容</a>
+            </li>
+            <li class='nav-item'>
+              <%=link_to "詳細", character_path(character), class:'nav-link' %>
+            </li>
+            <li class='nav-item'>
+              <%=link_to "編集", edit_character_path(character), class:'nav-link' %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p></p>
     <% end %>
-  </body>
-</table>
 <% else %>
   データがありませんでした。
   <p>
   <p>
 <% end %>
-<%= link_to '戻る', characters_path %>
+<div class='container'>
+  <%= link_to '戻る', characters_path %>
+</div>
 
 
 <%= paginate @results%>

@@ -1,7 +1,6 @@
-<% provide(:title, @user.username) %>
-<h1> <%= @user.username %>さんのページ</h1>
+<div class="container">
+  <h1> <%= @user.username %>さんのページ</h1>
+  <strong><%= @user.username %></strong>さんの推しは現在<%= @user.favorites.count %>人です
+</div>
 
-<h1>推し一覧</h1>
-<strong><%= @user.username %></strong>さんの推しは
-現在<%= @user.favorites.count %>人です
- <p>
+

@@ -39,7 +39,7 @@
                 <div class="dropdown-menu" aria-labelledy="navbarDropdown" >
                         <!--<a class="dropdown-item" href="/users/:id">'現在のユーザーさんのページ'</a>　と同義 -->
                         <!-- idや名前の取得など以外では、htmlの書き方のほうがわかりやすいため、基本は a hrefにしたい-->
-                        <%= link_to "#{current_user.username}さんのページ", user_path(current_user),class:'dropdown-item' %>
+                        <%= link_to "#{current_user.username}さんのページ", user_favorites_path(current_user),class:'dropdown-item' %>
                         <a class="dropdown-item" href="/users/edit">プロフィール更新</a>
                         <a class="dropdown-item" href="/users/sign_out">ログアウト</a>
                 </div>
