@@ -1,0 +1,894 @@
+<div class="row py-3">
+  <label for="element_list" class="col-md com-form-label" >内面情報</label>
+
+  <div class="col-md-9">
+    <%= form_with model: @character, local: true do |f| %>
+    <div class='accordion'>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#position"
+            aria-expanded="false" aria-controls="position">
+            立ち位置
+          </button>
+        </h2>
+        <div id="position"  class='accordion-collapse collapse' aria-labelledby='position' data-bs-parent="#personalities">
+          <div class='accordion-body'>
+            役柄
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"role1"},  "主人公" , nil %>
+            <%= f.label '主人公', {class: "btn btn-outline-primary",for:"role1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"role2"},  "ヒロイン" , nil %>
+            <%= f.label 'ヒロイン', {class: "btn btn-outline-primary",for:"role2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"role3"},  "ライバル" , nil %>
+            <%= f.label 'ライバル', {class: "btn btn-outline-primary",for:"role3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"role4"},  "仲間" , nil %>
+            <%= f.label '仲間', {class: "btn btn-outline-primary",for:"role4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"role8"},  "友人" , nil %>
+            <%= f.label '友人', {class: "btn btn-outline-primary",for:"role8"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"role5"},  "敵キャラ" , nil %>
+            <%= f.label '敵キャラ', {class: "btn btn-outline-primary",for:"role5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"role6"},  "ラスボス" , nil %>
+            <%= f.label 'ラスボス', {class: "btn btn-outline-primary",for:"role6"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"role7"},  "モブ" , nil %>
+            <%= f.label 'モブ', {class: "btn btn-outline-primary",for:"role7"}  %>
+            <br>続柄
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship1"},  "母親" , nil %>
+            <%= f.label '母親', {class: "btn btn-outline-primary",for:"relationship1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship2"},  "父親" , nil %>
+            <%= f.label '父親', {class: "btn btn-outline-primary",for:"relationship2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship3"},  "長男" , nil %>
+            <%= f.label '長男', {class: "btn btn-outline-primary",for:"relationship3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship4"},  "次男" , nil %>
+            <%= f.label '次男', {class: "btn btn-outline-primary",for:"relationship4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship5"},  "末っ子" , nil %>
+            <%= f.label '末っ子', {class: "btn btn-outline-primary",for:"relationship5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship6"},  "長女" , nil %>
+            <%= f.label '長女', {class: "btn btn-outline-primary",for:"relationship6"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship7"},  "次女" , nil %>
+            <%= f.label '次女', {class: "btn btn-outline-primary",for:"relationship7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship8"},  "一人っ子" , nil %>
+            <%= f.label '一人っ子', {class: "btn btn-outline-primary",for:"relationship8"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship9"},  "おばあさん" , nil %>
+            <%= f.label 'おばあさん', {class: "btn btn-outline-primary",for:"relationship9"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship10"},  "おじいさん" , nil %>
+            <%= f.label 'おじいさん', {class: "btn btn-outline-primary",for:"relationship10"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship11"},  "叔父" , nil %>
+            <%= f.label '叔父', {class: "btn btn-outline-primary",for:"relationship11"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship12"},  "叔母" , nil %>
+            <%= f.label '叔母', {class: "btn btn-outline-primary",for:"relationship12"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship13"},  "姪" , nil %>
+            <%= f.label '姪', {class: "btn btn-outline-primary",for:"relationship13"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship14"},  "甥" , nil %>
+            <%= f.label '甥', {class: "btn btn-outline-primary",for:"relationship14"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"relationship15"},  "未亡人" , nil %>
+            <%= f.label '未亡人', {class: "btn btn-outline-primary",for:"relationship15"}  %>
+            <br>職業
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession1"},  "アイドル" , nil %>
+            <%= f.label 'アイドル', {class: "btn btn-outline-primary",for:"profession1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession2"},  "アスリート" , nil %>
+            <%= f.label 'アスリート', {class: "btn btn-outline-primary",for:"profession2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession3"},  "アーティスト" , nil %>
+            <%= f.label 'アーティスト', {class: "btn btn-outline-primary",for:"profession3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession36"},  "暗殺者" , nil %>
+            <%= f.label '暗殺者', {class: "btn btn-outline-primary",for:"profession36"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession4"},  "医師" , nil %>
+            <%= f.label '医師', {class: "btn btn-outline-primary",for:"profession4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession5"},  "イタコ" , nil %>
+            <%= f.label 'イタコ', {class: "btn btn-outline-primary",for:"profession5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession6"},  "宇宙飛行士" , nil %>
+            <%= f.label '宇宙飛行士', {class: "btn btn-outline-primary",for:"profession6"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession7"},  "占い師" , nil %>
+            <%= f.label '占い師', {class: "btn btn-outline-primary",for:"profession7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession8"},  "映画監督" , nil %>
+            <%= f.label '映画監督', {class: "btn btn-outline-primary",for:"profession8"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession9"},  "芸人" , nil %>
+            <%= f.label '芸人', {class: "btn btn-outline-primary",for:"profession9"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession10"},  "音楽家" , nil %>
+            <%= f.label '音楽家', {class: "btn btn-outline-primary",for:"profession10"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession11"},  "会社員" , nil %>
+            <%= f.label '会社員', {class: "btn btn-outline-primary",for:"profession11"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession12"},  "学生" , nil %>
+            <%= f.label '学生', {class: "btn btn-outline-primary",for:"profession12"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession13"},  "教師" , nil %>
+            <%= f.label '教師', {class: "btn btn-outline-primary",for:"profession13"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession14"},  "軍人" , nil %>
+            <%= f.label '軍人', {class: "btn btn-outline-primary",for:"profession14"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession15"},  "警察" , nil %>
+            <%= f.label '警察', {class: "btn btn-outline-primary",for:"profession15"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession27"},  "検事" , nil %>
+            <%= f.label '検事', {class: "btn btn-outline-primary",for:"profession27"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession16"},  "公務員" , nil %>
+            <%= f.label '公務員', {class: "btn btn-outline-primary",for:"profession16"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession26"},  "裁判官" , nil %>
+            <%= f.label '裁判官', {class: "btn btn-outline-primary",for:"profession26"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession17"},  "自衛官" , nil %>
+            <%= f.label '自衛官', {class: "btn btn-outline-primary",for:"profession17"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession18"},  "小説家" , nil %>
+            <%= f.label '小説家', {class: "btn btn-outline-primary",for:"profession18"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession37"},  "執事" , nil %>
+            <%= f.label '執事', {class: "btn btn-outline-primary",for:"profession37"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession19"},  "スパイ" , nil %>
+            <%= f.label 'スパイ', {class: "btn btn-outline-primary",for:"profession19"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession20"},  "声優" , nil %>
+            <%= f.label '声優', {class: "btn btn-outline-primary",for:"profession20"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession21"},  "大統領" , nil %>
+            <%= f.label '大統領', {class: "btn btn-outline-primary",for:"profession21"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession22"},  "農家" , nil %>
+            <%= f.label '農家', {class: "btn btn-outline-primary",for:"profession22"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession23"},  "俳優" , nil %>
+            <%= f.label '俳優', {class: "btn btn-outline-primary",for:"profession23"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession24"},  "パイロット" , nil %>
+            <%= f.label 'パイロット', {class: "btn btn-outline-primary",for:"profession24"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession25"},  "弁護士" , nil %>
+            <%= f.label '弁護士', {class: "btn btn-outline-primary",for:"profession25"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession28"},  "マジシャン" , nil %>
+            <%= f.label 'マジシャン', {class: "btn btn-outline-primary",for:"profession28"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession29"},  "漫画家" , nil %>
+            <%= f.label '漫画家', {class: "btn btn-outline-primary",for:"profession29"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession30"},  "巫女" , nil %>
+            <%= f.label '巫女', {class: "btn btn-outline-primary",for:"profession30"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession31"},  "ミュージシャン" , nil %>
+            <%= f.label 'ミュージシャン', {class: "btn btn-outline-primary",for:"profession31"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession32"},  "モデル" , nil %>
+            <%= f.label 'モデル', {class: "btn btn-outline-primary",for:"profession32"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession33"},  "役者" , nil %>
+            <%= f.label '役者', {class: "btn btn-outline-primary",for:"profession33"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession34"},  "ユーチューバー" , nil %>
+            <%= f.label 'ユーチューバー', {class: "btn btn-outline-primary",for:"profession34"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"profession35"},  "料理人" , nil %>
+            <%= f.label '料理人', {class: "btn btn-outline-primary",for:"profession35"}  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#talk"
+            aria-expanded="false" aria-controls="talk">
+            話し方
+          </button>
+        </h2>
+        <div id="talk" class='accordion-collapse collapse' aria-labelledby='talk' data-bs-parent="#personalities">
+          <div class='accordion-body'>
+          一人称
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"tone1"},  "僕" , nil %>
+            <%= f.label '僕', {class: "btn btn-outline-primary",for:"tone1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"tone2"},  "俺" , nil %>
+            <%= f.label '俺', {class: "btn btn-outline-primary",for:"tone2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"tone3"},  "私" , nil %>
+            <%= f.label '私', {class: "btn btn-outline-primary",for:"tone3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"tone4"},  "あたし" , nil %>
+            <%= f.label 'あたし', {class: "btn btn-outline-primary",for:"tone4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"tone5"},  "俺っ子" , nil %>
+            <%= f.label '俺っ子', {class: "btn btn-outline-primary",for:"tone5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"tone6"},  "僕っ子" , nil %>
+            <%= f.label '僕っ子', {class: "btn btn-outline-primary",for:"tone6"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"tone7"},  "名前" , nil %>
+            <%= f.label '名前', {class: "btn btn-outline-primary",for:"tone7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"tone8"},  "俺様" , nil %>
+            <%= f.label '俺様', {class: "btn btn-outline-primary",for:"tone8"}  %>
+            <br>方言
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"dialect1"},  "関西弁" , nil %>
+            <%= f.label '関西弁', {class: "btn btn-outline-primary",for:"dialect1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"dialect2"},  "京言葉" , nil %>
+            <%= f.label '京言葉', {class: "btn btn-outline-primary",for:"dialect2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"dialect3"},  "博多弁" , nil %>
+            <%= f.label '博多弁', {class: "btn btn-outline-primary",for:"dialect3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"dialect4"},  "広島弁" , nil %>
+            <%= f.label '広島弁', {class: "btn btn-outline-primary",for:"dialect4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"dialect5"},  "沖縄弁" , nil %>
+            <%= f.label '沖縄弁', {class: "btn btn-outline-primary",for:"dialect5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"dialect6"},  "津軽弁" , nil %>
+            <%= f.label '津軽弁', {class: "btn btn-outline-primary",for:"dialect6"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"dialect7"},  "秋田弁" , nil %>
+            <%= f.label '秋田弁', {class: "btn btn-outline-primary",for:"dialect7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"dialect8"},  "仙台弁" , nil %>
+            <%= f.label '仙台弁', {class: "btn btn-outline-primary",for:"dialect8"}  %>
+            <br>語尾
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"flexion1"},  "ッス" , nil %>
+            <%= f.label 'ッス', {class: "btn btn-outline-primary",for:"flexion1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"flexion2"},  "です" , nil %>
+            <%= f.label 'です', {class: "btn btn-outline-primary",for:"flexion2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"flexion3"},  "ですぅ" , nil %>
+            <%= f.label 'ですぅ', {class: "btn btn-outline-primary",for:"flexion3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"flexion4"},  "ですの" , nil %>
+            <%= f.label 'ですの', {class: "btn btn-outline-primary",for:"flexion4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"flexion5"},  "ですわ" , nil %>
+            <%= f.label 'ですわ', {class: "btn btn-outline-primary",for:"flexion5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"flexion6"},  "デース" , nil %>
+            <%= f.label 'デース', {class: "btn btn-outline-primary",for:"flexion6"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"flexion7"},  "なのだ" , nil %>
+            <%= f.label 'なのだ', {class: "btn btn-outline-primary",for:"flexion7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"flexion8"},  "なのです" , nil %>
+            <%= f.label 'なのです', {class: "btn btn-outline-primary",for:"flexion8"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"flexion9"},  "にゃ" , nil %>
+            <%= f.label 'にゃ', {class: "btn btn-outline-primary",for:"flexion9"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"flexion10"},  "語尾が特殊" , nil %>
+            <%= f.label '語尾が特殊', {class: "btn btn-outline-primary",for:"flexion10"}  %>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#personality"
+            aria-expanded="false" aria-controls="personality">
+            性格
+          </button>
+        </h2>
+        <div id="personality"  class='accordion-collapse collapse' aria-labelledby='personality' data-bs-parent="#personalities">
+          <div class='accordion-body'>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality1"},  "アクティブ" , nil %>
+            <%= f.label 'アクティブ', {class: "btn btn-outline-primary",for:"personality1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality2"},  "姉御肌" , nil %>
+            <%= f.label '姉御肌', {class: "btn btn-outline-primary",for:"personality2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality3"},  "兄貴分" , nil %>
+            <%= f.label '兄貴分', {class: "btn btn-outline-primary",for:"personality3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality4"},  "アホの子" , nil %>
+            <%= f.label 'アホの子', {class: "btn btn-outline-primary",for:"personality4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality5"},  "甘えん坊" , nil %>
+            <%= f.label '甘えん坊', {class: "btn btn-outline-primary",for:"personality5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality6"},  "意識高い系" , nil %>
+            <%= f.label '意識高い系', {class: "btn btn-outline-primary",for:"personality6"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality7"},  "一途" , nil %>
+            <%= f.label '一途', {class: "btn btn-outline-primary",for:"personality7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality8"},  "一匹狼" , nil %>
+            <%= f.label '一匹狼', {class: "btn btn-outline-primary",for:"personality8"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality9"},  "陰キャ" , nil %>
+            <%= f.label '陰キャ', {class: "btn btn-outline-primary",for:"personality9"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality10"},  "慇懃無礼" , nil %>
+            <%= f.label '慇懃無礼', {class: "btn btn-outline-primary",for:"personality10"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality11"},  "淫乱" , nil %>
+            <%= f.label '淫乱', {class: "btn btn-outline-primary",for:"personality11"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality12"},  "内気" , nil %>
+            <%= f.label '内気', {class: "btn btn-outline-primary",for:"personality12"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality13"},  "浮気性" , nil %>
+            <%= f.label '浮気性', {class: "btn btn-outline-primary",for:"personality13"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality14"},  "エゴイスト" , nil %>
+            <%= f.label 'エゴイスト', {class: "btn btn-outline-primary",for:"personality14"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality15"},  "むっつり" , nil %>
+            <%= f.label 'むっつり', {class: "btn btn-outline-primary",for:"personality15"} %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality16"},  "おおさっぱ" , nil %>
+            <%= f.label 'おおざっぱ', {class: "btn btn-outline-primary",for:"personality16"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality17"},  "奥手" , nil %>
+            <%= f.label '奥手', {class: "btn btn-outline-primary",for:"personality17"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality18"},  "臆病" , nil %>
+            <%= f.label '臆病', {class: "btn btn-outline-primary",for:"personality18"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality19"},  "怒りっぽい" , nil %>
+            <%= f.label '怒りっぽい', {class: "btn btn-outline-primary",for:"personality19"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality20"},  "穏やか" , nil %>
+            <%= f.label '穏やか', {class: "btn btn-outline-primary",for:"personality20"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality21"},  "お調子者" , nil %>
+            <%= f.label 'お調子者', {class: "btn btn-outline-primary",for:"personality21"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality22"},  "おっとり" , nil %>
+            <%= f.label 'おっとり', {class: "btn btn-outline-primary",for:"personality22"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality23"},  "男嫌い" , nil %>
+            <%= f.label '男嫌い', {class: "btn btn-outline-primary",for:"personality23"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality24"},  "男好き" , nil %>
+            <%= f.label '男好き', {class: "btn btn-outline-primary",for:"personality24"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality25"},  "男勝り" , nil %>
+            <%= f.label '男勝り', {class: "btn btn-outline-primary",for:"personality25"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality26"},  "おとなしい" , nil %>
+            <%= f.label 'おとなしい', {class: "btn btn-outline-primary",for:"personality26"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality27"},  "温厚" , nil %>
+            <%= f.label '温厚', {class: "btn btn-outline-primary",for:"personality27"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality28"},  "女嫌い" , nil %>
+            <%= f.label '女嫌い', {class: "btn btn-outline-primary",for:"personality28"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality29"},  "女好き" , nil %>
+            <%= f.label '女好き', {class: "btn btn-outline-primary",for:"personality29"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality30"},  "堅物" , nil %>
+            <%= f.label '堅物', {class: "btn btn-outline-primary",for:"personality30"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality31"},  "勝気" , nil %>
+            <%= f.label '勝気', {class: "btn btn-outline-primary",for:"personality31"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality32"},  "活発" , nil %>
+            <%= f.label '活発', {class: "btn btn-outline-primary",for:"personality32"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality33"},  "家庭的" , nil %>
+            <%= f.label '家庭的', {class: "btn btn-outline-primary",for:"personality33"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality34"},  "かまってちゃん" , nil %>
+            <%= f.label 'かまってちゃん', {class: "btn btn-outline-primary",for:"personality34"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality35"},  "寡黙" , nil %>
+            <%= f.label '寡黙', {class: "btn btn-outline-primary",for:"personality35"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality36"},  "頑固" , nil %>
+            <%= f.label '頑固', {class: "btn btn-outline-primary",for:"personality36"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality37"},  "感情" , nil %>
+            <%= f.label '感情的', {class: "btn btn-outline-primary",for:"personality37"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality38"},  "寛大" , nil %>
+            <%= f.label '寛大', {class: "btn btn-outline-primary",for:"personality38"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality39"},  "努力家" , nil %>
+            <%= f.label '努力家', {class: "btn btn-outline-primary",for:"personality39"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality154"},  "完璧主義" , nil %>
+            <%= f.label '完璧主義', {class: "btn btn-outline-primary",for:"personality154"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality40"},  "キザ" , nil %>
+            <%= f.label 'キザ', {class: "btn btn-outline-primary",for:"personality40"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality41"},  "偽善者" , nil %>
+            <%= f.label '偽善者', {class: "btn btn-outline-primary",for:"personality41"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality42"},  "几帳面" , nil %>
+            <%= f.label '几帳面', {class: "btn btn-outline-primary",for:"personality42"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality43"},  "厳格" , nil %>
+            <%= f.label '厳格', {class: "btn btn-outline-primary",for:"personality43"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality44"},  "きまぐれ" , nil %>
+            <%= f.label 'きまぐれ', {class: "btn btn-outline-primary",for:"personality44"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality45"},  "生真面目" , nil %>
+            <%= f.label '生真面目', {class: "btn btn-outline-primary",for:"personality45"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality46"},  "器用貧乏" , nil %>
+            <%= f.label '器用貧乏', {class: "btn btn-outline-primary",for:"personality46"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality47"},  "バーサーカー" , nil %>
+            <%= f.label 'バーサーカー', {class: "btn btn-outline-primary",for:"personality47"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality48"},  "気弱" , nil %>
+            <%= f.label '気弱', {class: "btn btn-outline-primary",for:"personality48"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality49"},  "義理人情に厚い" , nil %>
+            <%= f.label '義理人情に厚い', {class: "btn btn-outline-primary",for:"personality49"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality50"},  "きれい好き「" , nil %>
+            <%= f.label 'きれい好き', {class: "btn btn-outline-primary",for:"personality50"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality51"},  "切れ者" , nil %>
+            <%= f.label '切れ者', {class: "btn btn-outline-primary",for:"personality51"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality52"},  "クール" , nil %>
+            <%= f.label 'クール', {class: "btn btn-outline-primary",for:"personality52"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality53"},  "苦労人" , nil %>
+            <%= f.label '苦労人', {class: "btn btn-outline-primary",for:"personality53"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality54"},  "誇り高い" , nil %>
+            <%= f.label '誇り高い', {class: "btn btn-outline-primary",for:"personality54"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality55"},  "ケチ" , nil %>
+            <%= f.label 'ケチ', {class: "btn btn-outline-primary",for:"personality55"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality56"},  "ゲス" , nil %>
+            <%= f.label 'ゲス', {class: "btn btn-outline-primary",for:"personality56"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality57"},  "潔癖症" , nil %>
+            <%= f.label '潔癖症', {class: "btn btn-outline-primary",for:"personality57"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality58"},  "健気" , nil %>
+            <%= f.label '健気', {class: "btn btn-outline-primary",for:"personality58"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality59"},  "元気" , nil %>
+            <%= f.label '元気', {class: "btn btn-outline-primary",for:"personality59"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality155"},  "現実主義" , nil %>
+            <%= f.label '現実主義', {class: "btn btn-outline-primary",for:"personality155"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality60"},  "小悪魔" , nil %>
+            <%= f.label '小悪魔', {class: "btn btn-outline-primary",for:"personality60"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality61"},  "狡猾" , nil %>
+            <%= f.label '狡猾', {class: "btn btn-outline-primary",for:"personality61"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality62"},  "硬派" , nil %>
+            <%= f.label '硬派', {class: "btn btn-outline-primary",for:"personality62"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality63"},  "好奇心旺盛" , nil %>
+            <%= f.label '好奇心旺盛', {class: "btn btn-outline-primary",for:"personality63"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality64"},  "傲慢" , nil %>
+            <%= f.label '傲慢', {class: "btn btn-outline-primary",for:"personality64"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality65"},  "合理的" , nil %>
+            <%= f.label '合理的', {class: "btn btn-outline-primary",for:"personality65"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality66"},  "極悪非道" , nil %>
+            <%= f.label '極悪非道', {class: "btn btn-outline-primary",for:"personality66"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality67"},  "孤高" , nil %>
+            <%= f.label '孤高', {class: "btn btn-outline-primary",for:"personality67"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality68"},  "怖いもの知らず" , nil %>
+            <%= f.label '怖いもの知らず', {class: "btn btn-outline-primary",for:"personality68"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality69"},  "蠱惑的" , nil %>
+            <%= f.label '蠱惑的', {class: "btn btn-outline-primary",for:"personality69"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality70"},  "サイコパス" , nil %>
+            <%= f.label 'サイコパス', {class: "btn btn-outline-primary",for:"personality70"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality71"},  "サド" , nil %>
+            <%= f.label 'サド', {class: "btn btn-outline-primary",for:"personality71"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality153"},  "策士" , nil %>
+            <%= f.label '策士', {class: "btn btn-outline-primary",for:"personality153"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality72"},  "残忍" , nil %>
+            <%= f.label '残忍', {class: "btn btn-outline-primary",for:"personality72"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality73"},  "神経質" , nil %>
+            <%= f.label '神経質', {class: "btn btn-outline-primary",for:"personality73"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality74"},  "自己中心的" , nil %>
+            <%= f.label '自己中心的', {class: "btn btn-outline-primary",for:"personality74"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality75"},  "自信家" , nil %>
+            <%= f.label '自信家', {class: "btn btn-outline-primary",for:"personality75"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality76"},  "したたか" , nil %>
+            <%= f.label 'したたか', {class: "btn btn-outline-primary",for:"personality76"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality77"},  "しっかり者" , nil %>
+            <%= f.label 'しっかり者', {class: "btn btn-outline-primary",for:"personality77"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality78"},  "嫉妬深い" , nil %>
+            <%= f.label '嫉妬深い', {class: "btn btn-outline-primary",for:"personality78"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality79"},  "社交的" , nil %>
+            <%= f.label '社交的', {class: "btn btn-outline-primary",for:"personality79"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality80"},  "秀才" , nil %>
+            <%= f.label '秀才', {class: "btn btn-outline-primary",for:"personality80"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality81"},  "純粋" , nil %>
+            <%= f.label '純粋', {class: "btn btn-outline-primary",for:"personality81"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality82"},  "性悪" , nil %>
+            <%= f.label '性悪', {class: "btn btn-outline-primary",for:"personality82"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality83"},  "常識人" , nil %>
+            <%= f.label '常識人', {class: "btn btn-outline-primary",for:"personality83"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality84"},  "心配性" , nil %>
+            <%= f.label '心配性', {class: "btn btn-outline-primary",for:"personality84"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality85"},  "素直" , nil %>
+            <%= f.label '素直', {class: "btn btn-outline-primary",for:"personality85"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality86"},  "誠実" , nil %>
+            <%= f.label '誠実', {class: "btn btn-outline-primary",for:"personality86"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality87"},  "世間知らず" , nil %>
+            <%= f.label '世間知らず', {class: "btn btn-outline-primary",for:"personality87"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality88"},  "せっかち" , nil %>
+            <%= f.label 'せっかち', {class: "btn btn-outline-primary",for:"personality88"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality89"},  "繊細" , nil %>
+            <%= f.label '繊細', {class: "btn btn-outline-primary",for:"personality89"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality90"},  "聡明" , nil %>
+            <%= f.label '聡明', {class: "btn btn-outline-primary",for:"personality90"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality91"},  "暴れん坊" , nil %>
+            <%= f.label '暴れん坊', {class: "btn btn-outline-primary",for:"personality91"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality92"},  "怠惰" , nil %>
+            <%= f.label '怠惰', {class: "btn btn-outline-primary",for:"personality92"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality93"},  "高飛車" , nil %>
+            <%= f.label '高飛車', {class: "btn btn-outline-primary",for:"personality93"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality94"},  "多重人格" , nil %>
+            <%= f.label '多重人格', {class: "btn btn-outline-primary",for:"personality94"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality95"},  "チャラ男" , nil %>
+            <%= f.label 'チャラ男', {class: "btn btn-outline-primary",for:"personality95"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality96"},  "ギャル" , nil %>
+            <%= f.label 'ギャル', {class: "btn btn-outline-primary",for:"personality96"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality97"},  "強気" , nil %>
+            <%= f.label '強気', {class: "btn btn-outline-primary",for:"personality97"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality98"},  "単純" , nil %>
+            <%= f.label '単純', {class: "btn btn-outline-primary",for:"personality98"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality99"},  "天才" , nil %>
+            <%= f.label '天才', {class: "btn btn-outline-primary",for:"personality99"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality100"},  "天然" , nil %>
+            <%= f.label '天然', {class: "btn btn-outline-primary",for:"personality100"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality101"},  "電波" , nil %>
+            <%= f.label '電波', {class: "btn btn-outline-primary",for:"personality101"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality102"},  "豆腐メンタル" , nil %>
+            <%= f.label '豆腐メンタル', {class: "btn btn-outline-primary",for:"personality102"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality103"},  "毒舌" , nil %>
+            <%= f.label '毒舌', {class: "btn btn-outline-primary",for:"personality103"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality104"},  "独占欲" , nil %>
+            <%= f.label '独占欲', {class: "btn btn-outline-primary",for:"personality104"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality105"},  "ドジっ子" , nil %>
+            <%= f.label 'ドジっ子', {class: "btn btn-outline-primary",for:"personality105"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality106"},  "ドライ" , nil %>
+            <%= f.label 'ドライ', {class: "btn btn-outline-primary",for:"personality106"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality107"},  "仲間思い" , nil %>
+            <%= f.label '仲間思い', {class: "btn btn-outline-primary",for:"personality107"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality108"},  "泣き虫" , nil %>
+            <%= f.label '泣き虫', {class: "btn btn-outline-primary",for:"personality108"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality109"},  "生意気" , nil %>
+            <%= f.label '生意気', {class: "btn btn-outline-primary",for:"personality109"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality110"},  "ナルシスト" , nil %>
+            <%= f.label 'ナルシスト', {class: "btn btn-outline-primary",for:"personality110"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality111"},  "ニヒル" , nil %>
+            <%= f.label 'ニヒル', {class: "btn btn-outline-primary",for:"personality111"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality112"},  "二枚舌" , nil %>
+            <%= f.label '二枚舌', {class: "btn btn-outline-primary",for:"personality112"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality113"},  "人間キライ" , nil %>
+            <%= f.label '人間嫌い', {class: "btn btn-outline-primary",for:"personality113"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality114"},  "人間の屑" , nil %>
+            <%= f.label '人間の屑', {class: "btn btn-outline-primary",for:"personality114"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality115"},  "ネガティブ" , nil %>
+            <%= f.label 'ネガティブ', {class: "btn btn-outline-primary",for:"personality115"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality116"},  "熱血" , nil %>
+            <%= f.label '熱血', {class: "btn btn-outline-primary",for:"personality116"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality117"},  "粘着質" , nil %>
+            <%= f.label '粘着質', {class: "btn btn-outline-primary",for:"personality117"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality118"},  "脳金" , nil %>
+            <%= f.label '脳金', {class: "btn btn-outline-primary",for:"personality118"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality119"},  "猫かぶり" , nil %>
+            <%= f.label '猫かぶり', {class: "btn btn-outline-primary",for:"personality119"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality120"},  "ねちっこい" , nil %>
+            <%= f.label 'ねちっこい', {class: "btn btn-outline-primary",for:"personality120"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality121"},  "根暗" , nil %>
+            <%= f.label '根暗', {class: "btn btn-outline-primary",for:"personality121"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality122"},  "能天気" , nil %>
+            <%= f.label '能天気', {class: "btn btn-outline-primary",for:"personality122"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality123"},  "のんき" , nil %>
+            <%= f.label 'のんき', {class: "btn btn-outline-primary",for:"personality123"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality124"},  "のんびり" , nil %>
+            <%= f.label 'のんびり', {class: "btn btn-outline-primary",for:"personality124"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality125"},  "ハードボイルド" , nil %>
+            <%= f.label 'ハードボイルド', {class: "btn btn-outline-primary",for:"personality125"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality126"},  "鋼メンタル" , nil %>
+            <%= f.label '鋼メンタル', {class: "btn btn-outline-primary",for:"personality126"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality127"},  "シャイ" , nil %>
+            <%= f.label 'シャイ', {class: "btn btn-outline-primary",for:"personality127"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality128"},  "腹黒" , nil %>
+            <%= f.label '腹黒', {class: "btn btn-outline-primary",for:"personality128"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality129"},  "控えめ" , nil %>
+            <%= f.label '控えめ', {class: "btn btn-outline-primary",for:"personality129"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality130"},  "ビッチ" , nil %>
+            <%= f.label 'ビッチ', {class: "btn btn-outline-primary",for:"personality130"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality131"},  "人見知り" , nil %>
+            <%= f.label '人見知り', {class: "btn btn-outline-primary",for:"personality131"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality132"},  "ひねくれもの" , nil %>
+            <%= f.label 'ひねくれもの', {class: "btn btn-outline-primary",for:"personality132"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality133"},  "ひょうひょうとしている" , nil %>
+            <%= f.label 'ひょうひょうとしている', {class: "btn btn-outline-primary",for:"personality133"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality134"},  "ビビり" , nil %>
+            <%= f.label 'ビビり', {class: "btn btn-outline-primary",for:"personality134"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality135"},  "無愛想" , nil %>
+            <%= f.label '無愛想', {class: "btn btn-outline-primary",for:"personality135"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality136"},  "ぶりっこ" , nil %>
+            <%= f.label 'ぶりっこ', {class: "btn btn-outline-primary",for:"personality136"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality137"},  "へたれ" , nil %>
+            <%= f.label 'へたれ', {class: "btn btn-outline-primary",for:"personality137"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality138"},  "変態" , nil %>
+            <%= f.label '変態', {class: "btn btn-outline-primary",for:"personality138"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality139"},  "変人" , nil %>
+            <%= f.label '変人', {class: "btn btn-outline-primary",for:"personality139"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality140"},  "ポーカーフェイス" , nil %>
+            <%= f.label 'ポーカーフェイス', {class: "btn btn-outline-primary",for:"personality140"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality141"},  "マゾ" , nil %>
+            <%= f.label 'マゾ', {class: "btn btn-outline-primary",for:"personality141"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality142"},  "ミーハー" , nil %>
+            <%= f.label 'ミーハー', {class: "btn btn-outline-primary",for:"personality142"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality143"},  "メンヘラ" , nil %>
+            <%= f.label 'メンヘラ', {class: "btn btn-outline-primary",for:"personality143"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality144"},  "ヤンデレ" , nil %>
+            <%= f.label 'ヤンデレ', {class: "btn btn-outline-primary",for:"personality144"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality145"},  "唯我独尊" , nil %>
+            <%= f.label '唯我独尊', {class: "btn btn-outline-primary",for:"personality145"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality146"},  "唯我独尊" , nil %>
+            <%= f.label '勇敢', {class: "btn btn-outline-primary",for:"personality146"} %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality147"},  "優柔不断" , nil %>
+            <%= f.label '優柔不断', {class: "btn btn-outline-primary",for:"personality147"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality148"},  "幼稚" , nil %>
+            <%= f.label '幼稚', {class: "btn btn-outline-primary",for:"personality148"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality149"},  "弱虫" , nil %>
+            <%= f.label '弱虫', {class: "btn btn-outline-primary",for:"personality149"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality150"},  "礼儀正しい" , nil %>
+            <%= f.label '礼儀正しい', {class: "btn btn-outline-primary",for:"personality150"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality151"},  "冷徹" , nil %>
+            <%= f.label '冷徹', {class: "btn btn-outline-primary",for:"personality151"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"personality152"},  "わんこ" , nil %>
+            <%= f.label 'わんこ', {class: "btn btn-outline-primary",for:"personality152"}  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row py-3">
+  <label for="element_list" class="col-md com-form-label" >外見情報</label>
+
+  <div class="col-md-9">
+    <div class='accordion'>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#hair"
+            aria-expanded="false" aria-controls="hair">
+            髪
+          </button>
+        </h2>
+        <div id="hair"  class='accordion-collapse collapse' aria-labelledby='hair' data-bs-parent="#appearances">
+          <div class='accordion-body'>
+          髪の長さ
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair1"},  "ベリーロング" , nil %>
+            <%= f.label 'ベリーロング', {class: "btn btn-outline-primary",for:"hair1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair2"},  "ロングヘアー" , nil %>
+            <%= f.label 'ロングヘアー', {class: "btn btn-outline-primary",for:"hair2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair3"},  "セミロング" , nil %>
+            <%= f.label 'セミロング', {class: "btn btn-outline-primary",for:"hair3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair4"},  "ミディアムショート" , nil %>
+            <%= f.label 'ミディアムショート', {class: "btn btn-outline-primary",for:"hair4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair5"},  "ショートヘアー" , nil %>
+            <%= f.label 'ショートヘアー', {class: "btn btn-outline-primary",for:"hair5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair6"},  "ベリーショート" , nil %>
+            <%= f.label'ベリーショート', {class: "btn btn-outline-primary",for:"hair6"}  %>
+            <br>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair7"},  "パーマ" , nil %>
+            <%= f.label 'パーマ', {class: "btn btn-outline-primary",for:"hair7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair8"},  "カール" , nil %>
+            <%= f.label 'カール', {class: "btn btn-outline-primary",for:"hair8"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair9"},  "ウェーブ" , nil %>
+            <%= f.label 'ウェーブ', {class: "btn btn-outline-primary",for:"hair9"}  %>
+            <br>
+            髪型
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style1"},  "ポニーテール" , nil %>
+            <%= f.label 'ポニーテール', {class: "btn btn-outline-primary",for:"hair_style1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style2"},  "サイドテール" , nil %>
+            <%= f.label 'サイドテール', {class: "btn btn-outline-primary",for:"hair_style2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style3"},  "ツインテール" , nil %>
+            <%= f.label 'ツインテール', {class: "btn btn-outline-primary",for:"hair_style3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style4"},  "アップスタイル" , nil %>
+            <%= f.label 'アップスタイル', {class: "btn btn-outline-primary",for:"hair_style4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style5"},  "お団子ヘアー" , nil %>
+            <%= f.label 'お団子ヘアー', {class: "btn btn-outline-primary",for:"hair_style5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style6"},  "パイナップルヘアー" , nil %>
+            <%= f.label 'パイナップルヘアー', {class: "btn btn-outline-primary",for:"hair_style6"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style7"},  "ハーフアップ" , nil %>
+            <%= f.label 'ハーフアップ', {class: "btn btn-outline-primary",for:"hair_style7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style8"},  "三つ編み" , nil %>
+            <%= f.label '三つ編み', {class: "btn btn-outline-primary",for:"hair_style8"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style9"},  "二つ結び" , nil %>
+            <%= f.label '二つ結び', {class: "btn btn-outline-primary",for:"hair_style9"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style10"},  "おさげ" , nil %>
+            <%= f.label 'おさげ', {class: "btn btn-outline-primary",for:"hair_style10"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_style11"},  "縦ロール" , nil %>
+            <%= f.label '縦ロール', {class: "btn btn-outline-primary",for:"hair_style11"}  %>
+            <br>
+            髪色
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcred"},  "赤髪" , nil %>
+            <%= f.label '赤髪',  {class: "btn btn-outline-primary",for:"hcred"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcblue"},  "青髪" , nil %>
+            <%= f.label '青髪', {class: "btn btn-outline-primary",for:"hcblue"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcblack"},  "黒髪" , nil %>
+            <%= f.label '黒髪', {class: "btn btn-outline-primary",for:"hcblack"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcgold"},  "金髪" , nil %>
+            <%= f.label '金髪', {class: "btn btn-outline-primary",for:"hcgold"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcbrown"},  "茶髪" , nil %>
+            <%= f.label '茶髪', {class: "btn btn-outline-primary",for:"hcbrown"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcwhite"},  "白髪" , nil %>
+            <%= f.label '白髪', {class: "btn btn-outline-primary",for:"hcwhite"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcgreen"},  "緑髪" , nil %>
+            <%= f.label '緑髪', {class: "btn btn-outline-primary",for:"hcgreen"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcpurple"},  "紫髪" , nil %>
+            <%= f.label '紫髪', {class: "btn btn-outline-primary",for:"hcpurple"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcsliver"},  "銀髪" , nil %>
+            <%= f.label '銀髪', {class: "btn btn-outline-primary",for:"hcsliver"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcpink"},  "桃髪" , nil %>
+            <%= f.label '桃髪', {class: "btn btn-outline-primary",for:"hcpink"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hclight_blue"},  "桃髪" , nil %>
+            <%= f.label '水色髪', {class: "btn btn-outline-primary",for:"hclight_blue"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcorange"},  "橙髪" , nil %>
+            <%= f.label '橙髪', {class: "btn btn-outline-primary",for:"hcorange"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hcmessyu"},  "メッシュ" , nil %>
+            <%= f.label 'メッシュ', {class: "btn btn-outline-primary",for:"hcmessyu"}  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#eye"
+            aria-expanded="false" aria-controls="eye">
+            目
+          </button>
+        </h2>
+        <div id="eye" class='accordion-collapse collapse' aria-labelledby='eye' data-bs-parent="#appearances">
+          <div class='accordion-body'>
+            目の形
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape1"},  "ツリ目" , nil %>
+            <%= f.label 'ツリ目', {class: "btn btn-outline-primary",for:"eye_shape1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape2"},  "たれ目" , nil %>
+            <%= f.label 'たれ目', {class: "btn btn-outline-primary",for:"eye_shape2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape3"},  "切れ長" , nil %>
+            <%= f.label '切れ長', {class: "btn btn-outline-primary",for:"eye_shape3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape4"},  "猫目" , nil %>
+            <%= f.label '猫目', {class: "btn btn-outline-primary",for:"eye_shape4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape5"},  "狐目" , nil %>
+            <%= f.label '狐目', {class: "btn btn-outline-primary",for:"eye_shape5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape6"},  "丸目" , nil %>
+            <%= f.label '丸目', {class: "btn btn-outline-primary",for:"eye_shape6"}  %>
+            <br>
+            目の特徴
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape7"},  "隻眼" , nil %>
+            <%= f.label '隻眼', {class: "btn btn-outline-primary",for:"eye_shape7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape8"},  "一つ目" , nil %>
+            <%= f.label '一つ目', {class: "btn btn-outline-primary",for:"eye_shape8"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape9"},  "三つ目" , nil %>
+            <%= f.label '三つ目', {class: "btn btn-outline-primary",for:"eye_shape9"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape10"},  "多眼" , nil %>
+            <%= f.label '多眼', {class: "btn btn-outline-primary",for:"eye_shape10"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape11"},  "メカクレ" , nil %>
+            <%= f.label 'メカクレ', {class: "btn btn-outline-primary",for:"eye_shape11"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape12"},  "ぐるぐる目" , nil %>
+            <%= f.label 'ぐるぐる目', {class: "btn btn-outline-primary",for:"eye_shape12"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape13"},  "三白眼" , nil %>
+            <%= f.label '三白眼', {class: "btn btn-outline-primary",for:"eye_shape13"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape14"},  "柄目" , nil %>
+            <%= f.label '柄目', {class: "btn btn-outline-primary",for:"eye_shape14"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape15"},  "重瞳" , nil %>
+            <%= f.label '重瞳', {class: "btn btn-outline-primary",for:"eye_shape15"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_shape16"},  "死んだ魚のような目" , nil %>
+            <%= f.label '死んだ魚のような目', {class: "btn btn-outline-primary",for:"eye_shape16"}  %>
+            <br>
+            眼の色
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_blue"},  "碧眼" , nil %>
+            <%= f.label '碧眼', {class: "btn btn-outline-primary",for:"eye_blue"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_green"},  "緑目" , nil %>
+            <%= f.label '緑目', {class: "btn btn-outline-primary",for:"eye_green"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_red"},  "赤目" , nil %>
+            <%= f.label '赤目', {class: "btn btn-outline-primary",for:"eye_red"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_brown"},  "茶目" , nil %>
+            <%= f.label '茶目', {class: "btn btn-outline-primary",for:"eye_brown"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_silver"},  "銀目" , nil %>
+            <%= f.label '銀目', {class: "btn btn-outline-primary",for:"eye_silver"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_black"},  "黒目" , nil %>
+            <%= f.label '黒目', {class: "btn btn-outline-primary",for:"eye_black"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_purple"},  "紫目" , nil %>
+            <%= f.label '紫目', {class: "btn btn-outline-primary",for:"eye_purple"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_white"},  "白目" , nil %>
+            <%= f.label '白目', {class: "btn btn-outline-primary",for:"eye_white"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_odd"},  "オッドアイ" , nil %>
+            <%= f.label 'オッドアイ', {class: "btn btn-outline-primary",for:"eye_odd"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_bw"},  "黒白目" , nil %>
+            <%= f.label '黒白目', {class: "btn btn-outline-primary",for:"eye_bw"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eye_rainbow"},  "虹眼" , nil %>
+            <%= f.label '虹眼', {class: "btn btn-outline-primary",for:"eye_rainbow"}  %>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#fase"
+            aria-expanded="false" aria-controls="fase">
+            顔
+          </button>
+        </h2>
+        <div id="fase" class='accordion-collapse collapse' aria-labelledby='fase' data-bs-parent="#appearances">
+          <div class='accordion-body'>
+          耳
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"ear_cat"},  "猫耳" , nil %>
+            <%= f.label '猫耳', {class: "btn btn-outline-primary",for:"ear_cat"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"ear_dog"},  "犬耳" , nil %>
+            <%= f.label '犬耳', {class: "btn btn-outline-primary",for:"ear_dog"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"ear_rabbit"},  "うさみみ" , nil %>
+            <%= f.label 'うさみみ', {class: "btn btn-outline-primary",for:"ear_rabbit"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"ear1"},  "ケモ耳" , nil %>
+            <%= f.label 'ケモ耳', {class: "btn btn-outline-primary",for:"ear1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"ear2"},  "エルフ耳" , nil %>
+            <%= f.label 'エルフ耳', {class: "btn btn-outline-primary",for:"ear2"}  %>
+            <br>
+            眉毛
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eyebrow1"},  "麻呂眉" , nil %>
+            <%= f.label '麻呂眉', {class: "btn btn-outline-primary",for:"eyebrow1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eyebrow2"},  "太眉" , nil %>
+            <%= f.label '太眉', {class: "btn btn-outline-primary",for:"eyebrow2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"eyebrow3"},  "八の字眉" , nil %>
+            <%= f.label '八の字眉', {class: "btn btn-outline-primary",for:"eyebrow3"}  %>
+            <br>
+            その他
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"fase1"},  "八重歯" , nil %>
+            <%= f.label '八重歯', {class: "btn btn-outline-primary",for:"fase1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"fase2"},  "ほくろ" , nil %>
+            <%= f.label 'ほくろ', {class: "btn btn-outline-primary",for:"fase2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"fase3"},  "スカーフェイス" , nil %>
+            <%= f.label 'スカーフェイス', {class: "btn btn-outline-primary",for:"fase3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"fase4"},  "そばかす" , nil %>
+            <%= f.label 'そばかす', {class: "btn btn-outline-primary",for:"fase4"}  %>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#body"
+            aria-expanded="false" aria-controls="body">
+            身体
+          </button>
+        </h2>
+        <div id="body" class='accordion-collapse collapse' aria-labelledby='body' data-bs-parent="#appearances">
+          <div class='accordion-body'>
+          体型
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style1"},  "スレンダー" , nil %>
+            <%= f.label 'スレンダー', {class: "btn btn-outline-primary",for:"body_style1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style2"},  "スマート" , nil %>
+            <%= f.label 'スマート', {class: "btn btn-outline-primary",for:"body_style2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style3"},  "細身" , nil %>
+            <%= f.label '細身', {class: "btn btn-outline-primary",for:"body_style3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style4"},  "ガリガリ" , nil %>
+            <%= f.label 'ガリガリ', {class: "btn btn-outline-primary",for:"body_style4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style5"},  "華奢" , nil %>
+            <%= f.label '華奢', {class: "btn btn-outline-primary",for:"body_style5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style6"},  "ぽっちゃり" , nil %>
+            <%= f.label 'ぽっちゃり', {class: "btn btn-outline-primary",for:"body_style6"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style7"},  "肥満" , nil %>
+            <%= f.label '肥満', {class: "btn btn-outline-primary",for:"body_style7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style8"},  "マッチョ" , nil %>
+            <%= f.label 'マッチョ', {class: "btn btn-outline-primary",for:"body_style8"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style9"},  "細マッチョ" , nil %>
+            <%= f.label '細マッチョ', {class: "btn btn-outline-primary",for:"body_style9"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style10"},  "ナイスバディ" , nil %>
+            <%= f.label 'ナイスバディ', {class: "btn btn-outline-primary",for:"body_style10"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style13"},  "色白" , nil %>
+            <%= f.label '色白', {class: "btn btn-outline-primary",for:"body_style13"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style14"},  "褐色" , nil %>
+            <%= f.label '褐色', {class: "btn btn-outline-primary",for:"body_style14"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style15"},  "巨大娘" , nil %>
+            <%= f.label '巨大娘', {class: "btn btn-outline-primary",for:"body_style15"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style16"},  "高身長" , nil %>
+            <%= f.label '高身長', {class: "btn btn-outline-primary",for:"body_style16"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style17"},  "低身長" , nil %>
+            <%= f.label '低身長', {class: "btn btn-outline-primary",for:"body_style17"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style18"},  "ロリ" , nil %>
+            <%= f.label 'ロリ', {class: "btn btn-outline-primary",for:"body_style18"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style19"},  "ショタ" , nil %>
+            <%= f.label 'ショタ', {class: "btn btn-outline-primary",for:"body_style19"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style20"},  "巨乳" , nil %>
+            <%= f.label '巨乳', {class: "btn btn-outline-primary",for:"body_style20"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style21"},  "貧乳" , nil %>
+            <%= f.label '貧乳', {class: "btn btn-outline-primary",for:"body_style21"}  %>
+            <br>
+            他
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style11"},  "義手・義足" , nil %>
+            <%= f.label '義手・義足', {class: "btn btn-outline-primary",for:"body_style11"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"body_style12"},  "前身サイボーグ" , nil %>
+            <%= f.label '全身サイボーグ', {class: "btn btn-outline-primary",for:"body_style12"}  %>
+          </div>
+      </div>
+    </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accessory"
+            aria-expanded="false" aria-controls="accessory">
+            アクセサリー
+          </button>
+        </h2>
+        <div id="accessory" class='accordion-collapse collapse' aria-labelledby='accessory' data-bs-parent="#appearances">
+          <div class='accordion-body'>
+          ヘアアクセサリー
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_accessory1"},  "カチューシャ" , nil %>
+            <%= f.label 'カチューシャ', {class: "btn btn-outline-primary",for:"hair_accessory1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_accessory2"},  "リボン" , nil %>
+            <%= f.label 'リボン', {class: "btn btn-outline-primary",for:"hair_accessory2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_accessory3"},  "帽子" , nil %>
+            <%= f.label '帽子', {class: "btn btn-outline-primary",for:"hair_accessory3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"hair_accessory4"},  "シルクハット" , nil %>
+            <%= f.label 'シルクハット', {class: "btn btn-outline-primary",for:"hair_accessory4"}  %>
+          <br>顔回り
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"face_accessory1"},  "眼鏡" , nil %>
+            <%= f.label '眼鏡', {class: "btn btn-outline-primary",for:"face_accessory1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"face_accessory2"},  "眼帯" , nil %>
+            <%= f.label '眼帯', {class: "btn btn-outline-primary",for:"face_accessory2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"face_accessory3"},  "包帯" , nil %>
+            <%= f.label '包帯', {class: "btn btn-outline-primary",for:"face_accessory3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"face_accessory4"},  "舌ピアス" , nil %>
+            <%= f.label '舌ピアス', {class: "btn btn-outline-primary",for:"face_accessory4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"face_accessory5"},  "鼻ピアス" , nil %>
+            <%= f.label '鼻ピアス', {class: "btn btn-outline-primary",for:"face_accessory5"}  %>
+          <br>首回り
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"neck_accessory1"},  "チョーカー" , nil %>
+            <%= f.label 'チョーカー', {class: "btn btn-outline-primary",for:"neck_accessory1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"neck_accessory2"},  "首輪" , nil %>
+            <%= f.label '首輪', {class: "btn btn-outline-primary",for:"neck_accessory2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"neck_accessory3"},  "マフラー" , nil %>
+            <%= f.label 'マフラー', {class: "btn btn-outline-primary",for:"neck_accessory3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"neck_accessory4"},  "ネックレス" , nil %>
+            <%= f.label 'ネックレス', {class: "btn btn-outline-primary",for:"neck_accessory4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"neck_accessory5"},  "ペンダント" , nil %>
+            <%= f.label 'ペンダント', {class: "btn btn-outline-primary",for:"neck_accessory5"}  %>
+          <br>耳回り
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"ear_accessory1"},  "イヤリング" , nil %>
+            <%= f.label 'イヤリング', {class: "btn btn-outline-primary",for:"ear_accessory1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"ear_accessory2"},  "イヤーカフ" , nil %>
+            <%= f.label 'イヤーカフ', {class: "btn btn-outline-primary",for:"ear_accessory2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"ear_accessory3"},  "ピアス" , nil %>
+            <%= f.label 'ピアス', {class: "btn btn-outline-primary",for:"ear_accessory3"}  %>
+          <br>手首回り
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"wrist_accessory1"},  "ブレスレット" , nil %>
+            <%= f.label 'ブレスレット', {class: "btn btn-outline-primary",for:"wrist_accessory1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"wrist_accessory2"},  "腕時計" , nil %>
+            <%= f.label '腕時計', {class: "btn btn-outline-primary",for:"wrist_accessory2"}  %>
+          <br>他
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"accessory1"},  "指輪" , nil %>
+            <%= f.label '指輪', {class: "btn btn-outline-primary",for:"accessory1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"accessory2"},  "タトゥー" , nil %>
+            <%= f.label 'タトゥー', {class: "btn btn-outline-primary",for:"accessory2"}  %>
+
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#species"
+            aria-expanded="false" aria-controls="species">
+            種族
+          </button>
+        </h2>
+        <div id="species" class='accordion-collapse collapse' aria-labelledby='species' data-bs-parent="#appearancess">
+          <div class='accordion-body'>
+            種族
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"species1"},  "天使" , nil %>
+            <%= f.label '天使', {class: "btn btn-outline-primary",for:"species1"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"species2"},  "悪魔" , nil %>
+            <%= f.label '悪魔', {class: "btn btn-outline-primary",for:"species2"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"species3"},  "妖精" , nil %>
+            <%= f.label '妖精', {class: "btn btn-outline-primary",for:"species3"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"species4"},  "妖怪" , nil %>
+            <%= f.label '妖怪', {class: "btn btn-outline-primary",for:"species4"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"species5"},  "幽霊" , nil %>
+            <%= f.label '幽霊', {class: "btn btn-outline-primary",for:"species5"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"species6"},  "モンスター" , nil %>
+            <%= f.label 'モンスター', {class: "btn btn-outline-primary",for:"species6"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"species9"},  "人魚" , nil %>
+            <%= f.label '人魚', {class: "btn btn-outline-primary",for:"species9"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"species7"},  "ロボット" , nil %>
+            <%= f.label 'ロボット', {class: "btn btn-outline-primary",for:"species7"}  %>
+            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"species8"},  "ハーフ" , nil %>
+            <%= f.label 'ハーフ', {class: "btn btn-outline-primary",for:"species8"}  %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

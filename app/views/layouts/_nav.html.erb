@@ -14,7 +14,7 @@
                 <a class="nav-link" href="/">ホーム<span class="visually-hidden">(current)</span></a>
         </li>
         <li class="nav-item">
-                <a class="nav-link" href="/pages/index">利用方法</a>
+                <a class="nav-link" href="/">利用方法</a><!-- 未実装-->
         </li>
         <li class="nav-item">
                 <a class="nav-link" href="/users">ユーザー一覧</a>
@@ -38,7 +38,7 @@
                 ユーザー管理</a>
                 <div class="dropdown-menu" aria-labelledy="navbarDropdown" >
                         <!--<a class="dropdown-item" href="/users/:id">'現在のユーザーさんのページ'</a>　と同義 -->
-                        <!-- idや名前の取得など以外では、htmlの書き方のほうがわかりやすいため、基本は a href　で書きます-->
+                        <!-- idや名前の取得など以外では、htmlの書き方のほうがわかりやすいため、基本は a hrefにしたい-->
                         <%= link_to "#{current_user.username}さんのページ", user_path(current_user),class:'dropdown-item' %>
                         <a class="dropdown-item" href="/users/edit">プロフィール更新</a>
                         <a class="dropdown-item" href="/users/sign_out">ログアウト</a>

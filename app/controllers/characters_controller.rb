@@ -62,7 +62,7 @@ end
     def destroy
         Character.find(params[:id].destroy)
         flash[:success] = 'キャラの削除ができました'
-        redirect_to  'index'
+        redirect_to 'index'
     end
 
     private

@@ -1,4 +1,7 @@
-<h1>検索結果</h1>
+<div class='container'>
+<h2>検索結果</h2>
+<div>
+<% if@results.present? %>
 <table>
   <head>
     <tr>
@@ -19,6 +22,11 @@
     <% end %>
   </body>
 </table>
+<% else %>
+  データがありませんでした。
+  <p>
+  <p>
+<% end %>
 <%= link_to '戻る', characters_path %>
 
 

@@ -34,15 +34,23 @@
           <div class="image">
             <%= f.file_field  :image %>
             <br>
-              下にプレビューが表示されます。<div id="new-image"></div>
+              下にプレビューが表示されます。
+              <div id="new-image">
+              </div>
           <div>
         </div>
       </div>
 
-      <%= render "characters/shared/appearances" %>
-      <!-- 折り畳み式-->
-      <p><%= f.submit "アップデート", class: "btn btn-primary" %>
+      <%= render "characters/shared/tags" %>
+
+      <div class="row py-3">
+        <label for="submit" class="col-md com-form-label" >
+          <p><%= f.submit "作成", class: "btn btn-primary" %>
+        </label>
+      </div>
     <% end %>
+
+
   </div>
 </div>
 

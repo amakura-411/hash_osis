@@ -28,28 +28,27 @@
 
 
         <div class="row py-3">
-          <label for="image" class="col-md com-form-label" >キャラクターの画像ファイル</label>
-          <div class="col-md-9">
-            <div class="image">
-              <%= f.file_field  :image %>
-              <br>
+        <label for="image" class="col-md com-form-label" >キャラクターの画像ファイル</label>
+        <div class="col-md-9">
+          <div class="image">
+            <%= f.file_field  :image %>
+            <br>
               下にプレビューが表示されます。<div id="new-image"></div>
-            <div>
-          </div>
+          <div>
         </div>
-         <%= render "characters/shared/appearances" %>
-        <li>グループ１</li>
-            
-            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"btn-check-outlined"},  "赤目" , nil %>
-            <%= f.label '赤目', {class: "btn btn-outline-primary",for:"btn-check-outlined"}  %>
-            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"1"},  "青目" , nil %>
-            <%= f.label '青目', {class: "btn btn-outline-primary",for:"1"}  %>
-            <%= f.check_box :element_list,  { multiple: true, class: "btn-check", id:"btn-check-outlined2"},  "金目" , nil %>
-            <%= f.label '金目',  {class: "btn btn-outline-primary",for:"btn-check-outlined2"}  %>
-      <p><%= f.submit "アップデート", class: "btn btn-primary" %>
+      </div>
+      <%= render "characters/shared/tags" %>
+      <br>
+     
+      <br>
+
+      <div class="row py-3">
+        <label for="submit" class="col-md com-form-label" >
+          <p><%= f.submit "作成", class: "btn btn-primary" %>
+        </label>
+      </div>
     <% end %>
-    <br>
+
+
   </div>
 </div>
-
-</body>
