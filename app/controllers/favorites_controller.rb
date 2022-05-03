@@ -1,6 +1,7 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-  
+  skip_before_action :verify_authenticity_token
+
 def show
     @user =User.find(params[:user_id])
     @characters =@user.favorited_characters.page(params[:page])

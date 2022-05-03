@@ -4,6 +4,7 @@ before_action :set_q, only: [:index, :search]
 before_action :admin_user, only: [:destroy]
 
 
+
 def new
     @character = Character.new
 end
@@ -29,7 +30,6 @@ def update
     @character = Character.find(params[:id])
     if params[:character][:image_id]
         @image = @character.image.find(image_id)
-        
     end
     if@character.update(character_params)
         flash[:notice] = "更新しました!"
@@ -41,9 +41,9 @@ end
 
     def index
         @characters = Character.all.page(params[:page])
-        @elements   = Character.tag_counts_on(:elements).most_used(20) 
+        @elements   = Character.tag_counts_on(:elements).most_used(20)
         if @element = params[:element]
-            @character = Character.tagged_with(params[:element])
+            @characters = Character.tagged_with(params[:element]).all.page(params[:page])
         end
     end
 
@@ -55,7 +55,8 @@ end
     def search
         @results = @q.result.page(params[:page])
     end
-    
+
+
 
 
 

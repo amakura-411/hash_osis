@@ -2,6 +2,18 @@
 <h1><%=@character.chara_name %></h1>
       <%= image_tag @character.image if @character.image.attached? %>
 <br>
+<% if user_signed_in? %>
+            <% if @character.favorited_by?(current_user)  %>
+              <%= link_to character_favorites_path(@character), method: :delete, class: "favorite_btn" do %>♥
+              <% end %>
+            <% else %>
+              <%= link_to character_favorites_path(@character), method: :post, class: "favorite_btn" do %>♡
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to character_favorites_path(@character), method: :post, class: "favorite_btn" do %>♡
+            <% end %>
+          <% end %>
 <% if @elements.present? %>
    <% @elements.each do |element| %>
    

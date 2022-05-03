@@ -4,12 +4,16 @@
 
 <div class='container'>
 <h3>検索</h3>
-<%= search_form_for @q,  url: character_search_path do |f| %>
-  <%= f.label :chara_name_or_appear_in_cont,'キャラ名/作品名',  :placeholder => 'キャラ名または作品名を記入したください'%>
-  <%= f.search_field :chara_name_or_appear_in_cont %>
+<%= search_form_for @q,  url: character_search_path  do |f| %>
+    <%= f.label :chara_name_or_appear_in_or_elements_name_cont,'キャラ名/作品名/タグ',  :placeholder => 'キャラ名、作品名またはタグを記入したください'%>
+    <%= f.search_field :chara_name_or_appear_in_or_elements_name_cont %>
     <br>
   <%= f.submit '検索' %>
 <% end %>
+
+
+
+
 推しは見つかりましたか？　見つからない場合はぜひ
 <%= link_to 'キャラ登録',new_character_path %>
 をお願いします。
@@ -18,11 +22,15 @@
 <div class='container'>
   <% if @character.present? %>
    <h4>#<%= @element %>  に関するキャラクター </h4>
-    <% @character.each do |character| %>
+    <div class="row py-3">
+  <% @characters.each do |character| %>
+    <div class='col-md-4'>
       <div class='card'>
-        <div class='col-md-4'>
-          <%= image_tag character.image , class:"icon" if character.image.attached? %>
-        </div>
+        <% if character.image.present? %>
+          <%= image_tag character.image %>
+        <% else %>
+          <%= image_tag  'noimage.png' %>
+        <% end %>
         <div class='card-body'>
           <h4 class='card-title'>
             <%= character.chara_name %>
@@ -31,8 +39,6 @@
             <%= character.appear_in %>
           </h5>
           <p class='card-text'>
-          <p>
-      <p>
             <% if character.tag_counts_on(:elements).present? %>
               <% character.tag_counts_on(:elements).each do |element| %>
                 <%= link_to "#{element.name}(#{element.taggings_count})",characters_path(element: element.name) %>
@@ -43,7 +49,7 @@
         <div class='card-footer'>
           <ul class='nav nav-tabs card-footer-pills' >
             <li class='nav-item'>
-            <a class='nav-link active' href='#'>内容</a>
+              <a class='nav-link active' href='#'>内容</a>
             </li>
             <li class='nav-item'>
               <%=link_to "詳細", character_path(character), class:'nav-link' %>
@@ -54,14 +60,19 @@
           </ul>
         </div>
       </div>
-      <p></p>
-    <% end %>
-  <% else %>
-    <% @characters.find_each do |character| %>
+    </div>
+  <% end %>
+</div>
+<% else %>
+<div class="row py-3">
+  <% @characters.find_each do |character| %>
+    <div class='col-md-4'>
       <div class='card'>
-        <div class='col-md-4'>
-          <%= image_tag character.image , class:"icon" if character.image.attached? %>
-        </div>
+        <% if character.image.present? %>
+          <%= image_tag character.image %>
+        <% else %>
+          <%= image_tag  'noimage.png' %>
+        <% end %>
         <div class='card-body'>
           <h4 class='card-title'>
             <%= character.chara_name %>
@@ -70,7 +81,6 @@
             <%= character.appear_in %>
           </h5>
           <p class='card-text'>
-          <p>
             <% if character.tag_counts_on(:elements).present? %>
               <% character.tag_counts_on(:elements).each do |element| %>
                 <%= link_to "#{element.name}(#{element.taggings_count})",characters_path(element: element.name) %>
@@ -83,7 +93,7 @@
         <div class='card-footer'>
           <ul class='nav nav-tabs card-footer-pills' >
             <li class='nav-item'>
-            <a class='nav-link active' href='#'>内容</a>
+              <a class='nav-link active' href='#'>内容</a>
             </li>
             <li class='nav-item'>
               <%=link_to "詳細", character_path(character), class:'nav-link' %>
@@ -91,11 +101,27 @@
             <li class='nav-item'>
               <%=link_to "編集", edit_character_path(character), class:'nav-link' %>
             </li>
+            <li class='nav-item'>
+              <% if user_signed_in? %>
+                <% if character.favorited_by?(current_user)  %>
+                  <%= link_to character_favorites_path(character), method: :delete, class: "favorite_btn nav-link" do %>♥
+                  <% end %>
+                <% else %>
+                  <%= link_to character_favorites_path(character), method: :post, class: "favorite_btn" do %>♡
+                  <% end %>
+                <% end %>
+              <% else %>
+                <%= link_to character_favorites_path(character), method: :post, class: "favorite_btn" do %>♡
+                <% end %>
+              <% end %>
           </ul>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
 </div>
+
+<% end %>
+
 
 <%= paginate @characters %>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 #================キャラクターについて================================
 #==========タグについて==========
 
+
   #==============キャラをお気に入りにできる=========
   resources :characters do
     resource :favorites, only: [:create, :destroy]
@@ -37,8 +38,11 @@ get 'user/search', to:'users#search'
 resources :characters do
   collection do
     get 'search'
+    get 'tags'
   end
 end
   get 'character/search', to:'characters#search'
+  get 'character/tags', to:'characters#tags'
+  
 end
 

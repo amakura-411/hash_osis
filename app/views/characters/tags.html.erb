@@ -1,19 +1,12 @@
-<div class="container">
-  <h2><%= @user.username %>さんの推し一覧</h2>
-</div>
-
-<% if @user.favorites.count == 0 %>
-  <% if current_user==@user %>
-    キャラクター一覧から推しを見つけてください！
-    <% else %>
-    データがありませんでした。
-    <% end%>
-<% else %>
-    <% @characters.each do|character| %>
-    <div class='card'>
-        <div class='col-md-4'>
-          <%= image_tag character.image , class:"icon" if character.image.attached? %>
-        </div>
+<% if @characters.present? %>
+  <% @characters.each do |character| %>
+    <div class='col-md-4'>
+      <div class='card'>
+        <% if character.image.present? %>
+          <%= image_tag character.image %>
+        <% else %>
+          <%= image_tag  'noimage.png' %>
+        <% end %>
         <div class='card-body'>
           <h4 class='card-title'>
             <%= character.chara_name %>
@@ -22,7 +15,6 @@
             <%= character.appear_in %>
           </h5>
           <p class='card-text'>
-          <p>
             <% if character.tag_counts_on(:elements).present? %>
               <% character.tag_counts_on(:elements).each do |element| %>
                 <%= link_to "#{element.name}(#{element.taggings_count})",characters_path(element: element.name) %>
@@ -33,7 +25,7 @@
         <div class='card-footer'>
           <ul class='nav nav-tabs card-footer-pills' >
             <li class='nav-item'>
-            <a class='nav-link active' href='#'>内容</a>
+              <a class='nav-link active' href='#'>内容</a>
             </li>
             <li class='nav-item'>
               <%=link_to "詳細", character_path(character), class:'nav-link' %>
@@ -43,9 +35,7 @@
             </li>
           </ul>
         </div>
+      </div>
     </div>
-    <% end%>
+  <% end %>
 <% end %>
-<div>
-  <h4><%= link_to "戻る",  :back %></h4>
-</div>
